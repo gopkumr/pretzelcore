@@ -42,7 +42,7 @@ namespace Pretzel.Commands
         public IConfiguration Configuration { get; set; }
 
         [OnImportsSatisfied]
-        internal void OnImportsSatisfied()
+        public void OnImportsSatisfied()
         {
             RootCommand = new RootCommand();
 

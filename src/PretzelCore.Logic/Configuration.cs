@@ -28,7 +28,7 @@ namespace Pretzel.Logic
 
     [Shared]
     [Export(typeof(IConfiguration))]
-    internal sealed class Configuration : IConfiguration
+    public sealed class Configuration : IConfiguration
     {
         private const string ConfigFileName = "_config.yml";
         public const string DefaultPermalink = "date";
@@ -39,7 +39,7 @@ namespace Pretzel.Logic
 
         public IDefaultsConfiguration Defaults { get; private set; }
 
-        internal Configuration()
+        public Configuration()
         {
             _config = new Dictionary<string, object>();
             EnsureDefaults();

@@ -19,9 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pretzel.ScriptCs", "Pretzel.ScriptCs\Pretzel.ScriptCs.csproj", "{23308D48-7EBF-4082-BFDA-B62C9404E9C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PretzelCore", "PretzelCore\PretzelCore.csproj", "{ABFC27A7-9F68-496D-99E2-CAC59AFC26A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PretzelCore", "PretzelCore\PretzelCore.csproj", "{ABFC27A7-9F68-496D-99E2-CAC59AFC26A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PretzelCore.Logic", "PretzelCore.Logic\PretzelCore.Logic.csproj", "{2FD406DA-6624-4DDB-AB79-784B489347FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PretzelCore.Logic", "PretzelCore.Logic\PretzelCore.Logic.csproj", "{2FD406DA-6624-4DDB-AB79-784B489347FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PretzelCore.Tests", "PretzelCore.Tests\PretzelCore.Tests.csproj", "{DA112872-2544-4DA1-86E0-FF96A7202C01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{2FD406DA-6624-4DDB-AB79-784B489347FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FD406DA-6624-4DDB-AB79-784B489347FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FD406DA-6624-4DDB-AB79-784B489347FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA112872-2544-4DA1-86E0-FF96A7202C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA112872-2544-4DA1-86E0-FF96A7202C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA112872-2544-4DA1-86E0-FF96A7202C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA112872-2544-4DA1-86E0-FF96A7202C01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,12 +15,12 @@ using Pretzel.Logic.Extensions;
 
 namespace Pretzel
 {
-    class Program
+   public class Program
     {
 #pragma warning disable S2223 // Non-constant static fields should not be visible
-        internal static IFileSystem fileSystem = new FileSystem();
+        public static IFileSystem fileSystem = new FileSystem();
 
-        internal static Option[] GlobalOptions = new[]
+        public static Option[] GlobalOptions = new[]
         {
             new Option("--debug", "Enable debugging", argumentType: typeof(bool)),
             new Option("--safe", "Disable custom plugins",argumentType: typeof(bool)),
@@ -95,7 +95,7 @@ namespace Pretzel
         }
 
 
-        internal static string[] PatchSourcePath(string[] args)
+        public static string[] PatchSourcePath(string[] args)
         {
             if (args.Length > 1 && !args.Contains("-s") && !args.Contains("--source"))
             {
@@ -166,7 +166,7 @@ namespace Pretzel
             }
         }
 
-        internal static CompositionHost Compose(bool debug, bool safe, string path)
+        public static CompositionHost Compose(bool debug, bool safe, string path)
         {
             try
             {
