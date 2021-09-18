@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "PretzelCore": {
+      "commandName": "Project",
+      "commandLineArgs": "taste",
+      "workingDirectory": "D:\\PretzelOutput"
+    }
+  }
+}
