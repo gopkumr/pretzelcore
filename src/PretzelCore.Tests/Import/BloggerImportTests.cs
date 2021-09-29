@@ -4,12 +4,12 @@ using System.Globalization;
 using Xunit;
 using System.IO.Abstractions.TestingHelpers;
 using Pretzel.Logic.Import;
-using Pretzel.Logic.Extensions;
 using System.Text;
 using System.IO;
 using NSubstitute;
 using System.IO.Abstractions;
 using System.Threading;
+using PretzelCore.Services.Extensions;
 
 namespace Pretzel.Tests.Import
 {

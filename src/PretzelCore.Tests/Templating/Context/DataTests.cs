@@ -1,6 +1,6 @@
 using DotLiquid;
 using NSubstitute;
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Services.Templating.Context;
 using System;
 using System.Collections.Generic;
 using System.IO;

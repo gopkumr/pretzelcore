@@ -1,5 +1,5 @@
 ﻿using Pretzel.Logic.Templating;
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Services.Templating.Context;
 using Xunit;
 
 namespace Pretzel.Tests.Templating.Jekyll

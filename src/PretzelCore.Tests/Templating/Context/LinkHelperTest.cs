@@ -1,4 +1,5 @@
 ﻿using Pretzel.Logic.Templating.Context;
+using PretzelCore.Services.Templating.Context;
 using System;
 using System.Linq;
 using Xunit;

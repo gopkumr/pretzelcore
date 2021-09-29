@@ -1,15 +1,17 @@
-using Pretzel.Logic.Extensions;
+using PretzelCore.Core.Configuration.Interfaces;
+using PretzelCore.Core.Extensibility;
+using PretzelCore.Core.Extensions;
+using PretzelCore.Services.Extensibility;
 using System;
 using System.Collections.Generic;
+using System.Composition;
 using System.Globalization;
 using System.IO;
 using System.IO.Abstractions;
 using System.Linq;
 using System.Text;
-using Pretzel.Logic.Extensibility;
-using System.Composition;
 
-namespace Pretzel.Logic.Templating.Context
+namespace PretzelCore.Services.Templating.Context
 {
     [Export]
     [Shared]
@@ -91,10 +93,10 @@ namespace Pretzel.Logic.Templating.Context
                 if (!ContainsYamlFrontMatter(file))
                 {
                     yield return new NonProcessedPage
-                                     {
-                                         File = file,
-                                         Filepath = Path.Combine(context.OutputFolder, MapToOutputPath(context, file))
-                                     };
+                    {
+                        File = file,
+                        Filepath = Path.Combine(context.OutputFolder, MapToOutputPath(context, file))
+                    };
                 }
                 else
                 {
@@ -217,7 +219,7 @@ namespace Pretzel.Logic.Templating.Context
         {
             return relativePath.StartsWith("_")
                     || relativePath.Contains("_posts")
-                    || (relativePath.StartsWith(".") && relativePath != ".htaccess")
+                    || relativePath.StartsWith(".") && relativePath != ".htaccess"
                     || relativePath.EndsWith(".TMP", StringComparison.OrdinalIgnoreCase);
         }
 
@@ -240,14 +242,14 @@ namespace Pretzel.Logic.Templating.Context
                 }
 
                 var page = new Page
-                                {
-                                    Title = header.ContainsKey("title") ? header["title"].ToString() : "this is a post",
-                                    Date = header.ContainsKey("date") ? DateTime.Parse(header["date"].ToString()) : file.Datestamp(fileSystem),
-                                    Content = content,
-                                    Filepath = isPost ? GetPathWithTimestamp(context.OutputFolder, file) : GetFilePathForPage(context, file),
-                                    File = file,
-                                    Bag = header,
-                                };
+                {
+                    Title = header.ContainsKey("title") ? header["title"].ToString() : "this is a post",
+                    Date = header.ContainsKey("date") ? DateTime.Parse(header["date"].ToString()) : file.Datestamp(fileSystem),
+                    Content = content,
+                    Filepath = isPost ? GetPathWithTimestamp(context.OutputFolder, file) : GetFilePathForPage(context, file),
+                    File = file,
+                    Bag = header,
+                };
 
                 // resolve categories and tags
                 if (isPost)
@@ -323,7 +325,7 @@ namespace Pretzel.Logic.Templating.Context
             {
                 return false;
             }
-            return onlyFrontmatterCategories is bool && (bool) onlyFrontmatterCategories;
+            return onlyFrontmatterCategories is bool && (bool)onlyFrontmatterCategories;
         }
 
         private string GetFilePathForPage(SiteContext context, string file)

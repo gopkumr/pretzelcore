@@ -1,12 +1,12 @@
 using DotLiquid;
 using System.Collections.Generic;
 using System.IO;
-using Pretzel.Logic.Templating.Context;
 using System.Linq;
-using Pretzel.Logic.Exceptions;
 using System.Composition;
+using PretzelCore.Core.Exceptions;
+using PretzelCore.Services.Templating.Context;
 
-namespace Pretzel.Logic.Extensibility.Extensions
+namespace PretzelCore.Core.Extensibility.Extensions
 {
     public class PostUrlTag : DotLiquid.Tag, ITag
     {
@@ -14,7 +14,7 @@ namespace Pretzel.Logic.Extensibility.Extensions
         private readonly SiteContext _siteContext;
 
         public new string Name { get { return "PostUrl"; } }
-        
+
         public PostUrlTag(SiteContext siteContext)
         {
             _siteContext = siteContext;
@@ -51,7 +51,7 @@ namespace Pretzel.Logic.Extensibility.Extensions
         }
 
         public override void Render(Context context, TextWriter result)
-        {   
+        {
             result.Write(PostUrl(_postFileName));
         }
     }

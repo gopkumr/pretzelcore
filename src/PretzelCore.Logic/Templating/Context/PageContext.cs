@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Pretzel.Logic.Templating.Context
+namespace PretzelCore.Services.Templating.Context
 {
     public class PageContext
     {

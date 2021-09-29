@@ -4,8 +4,8 @@ using System.Linq;
 using NSubstitute;
 using Pretzel.Logic;
 using Pretzel.Logic.Commands;
-using Pretzel.Logic.Templating;
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Services.Templating;
+using PretzelCore.Services.Templating.Context;
 using Xunit;
 
 namespace Pretzel.Tests.Commands

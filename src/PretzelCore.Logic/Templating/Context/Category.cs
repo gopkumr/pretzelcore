@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using DotLiquid;
 
-namespace Pretzel.Logic.Templating.Context
+namespace PretzelCore.Services.Templating.Context
 {
     public class Category : Drop
     {

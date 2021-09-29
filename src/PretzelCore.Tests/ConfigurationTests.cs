@@ -1,8 +1,8 @@
 using System;
 using System.IO.Abstractions.TestingHelpers;
-using Pretzel.Logic;
 using Pretzel.Logic.Commands;
 using Pretzel.Logic.Extensions;
+using PretzelCore.Services;
 using Xunit;
 
 namespace Pretzel.Tests

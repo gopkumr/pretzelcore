@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace Pretzel.Logic.Liquid
+namespace PretzelCore.Services.Liquid
 {
     public static class DateToStringFilter
     {
@@ -17,7 +17,7 @@ namespace Pretzel.Logic.Liquid
             {
                 return date_to_string(inputDate);
             }
-            
+
             return "";
         }
     }

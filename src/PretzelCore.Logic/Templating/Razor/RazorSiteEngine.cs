@@ -1,18 +1,17 @@
-using Pretzel.Logic.Extensions;
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Core.Extensibility;
+using PretzelCore.Core.Extensions;
+using PretzelCore.Services.Templating.Context;
 using RazorEngine;
 using RazorEngine.Configuration;
 using RazorEngine.Templating;
 using System;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Linq;
-using Pretzel.Logic.Extensibility;
 using System.Collections.Generic;
 using System.Composition;
-using Microsoft.AspNetCore.Mvc.Razor.Extensions;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
 
-namespace Pretzel.Logic.Templating.Razor
+namespace PretzelCore.Services.Templating.Razor
 {
     [Shared]
     [SiteEngineInfo(Engine = "razor")]

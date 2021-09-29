@@ -1,4 +1,4 @@
-﻿using Pretzel.Logic.Liquid;
+﻿using PretzelCore.Services.Liquid;
 using System;
 using System.Xml;
 using Xunit;

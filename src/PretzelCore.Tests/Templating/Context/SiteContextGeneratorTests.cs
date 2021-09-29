@@ -10,8 +10,8 @@ using System.Threading;
 using NSubstitute;
 using Pretzel.Logic;
 using Pretzel.Logic.Extensibility;
-using Pretzel.Logic.Extensions;
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Services.Extensions;
+using PretzelCore.Services.Templating.Context;
 using Xunit;
 
 namespace Pretzel.Tests.Templating.Context

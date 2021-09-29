@@ -5,7 +5,7 @@ using System.Text;
 using System.IO.Abstractions;
 using System.IO;
 
-namespace Pretzel.Logic.Minification
+namespace PretzelCore.Services.Minification
 {
     public class AssetMinifier
     {
@@ -28,12 +28,12 @@ namespace Pretzel.Logic.Minification
 
         private string minifyCss(string templateContent)
         {
-            var outputPath = Path.Combine(_siteDirectory, @"_site\css\minified.css"); 
+            var outputPath = Path.Combine(_siteDirectory, @"_site\css\minified.css");
 
             //todo extract all internal css/less links from template
             var cssFiles = new List<FileInfo>();
 
-           // var cssMinifier = new CssMinifier(_fileSystem, cssFiles, outputPath);
+            // var cssMinifier = new CssMinifier(_fileSystem, cssFiles, outputPath);
             //cssMinifier.Minify();
 
             //todo replace extracted links with single link to minified css (possibly with a hash appended)

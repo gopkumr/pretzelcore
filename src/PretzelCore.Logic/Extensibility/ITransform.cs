@@ -1,6 +1,6 @@
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Services.Templating.Context;
 
-namespace Pretzel.Logic.Extensibility
+namespace PretzelCore.Services.Extensibility
 {
     public interface ITransform
     {

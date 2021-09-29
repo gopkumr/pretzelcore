@@ -1,5 +1,5 @@
-using Pretzel.Logic;
-using Pretzel.Logic.Extensions;
+using PretzelCore.Core.Configuration.Interfaces;
+using PretzelCore.Core.Extensions;
 using System.Collections.Generic;
 using System.Composition;
 

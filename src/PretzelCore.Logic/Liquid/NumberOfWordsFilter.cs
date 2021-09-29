@@ -1,6 +1,6 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 
-namespace Pretzel.Logic.Liquid
+namespace PretzelCore.Services.Liquid
 {
     public static class NumberOfWordsFilter
     {

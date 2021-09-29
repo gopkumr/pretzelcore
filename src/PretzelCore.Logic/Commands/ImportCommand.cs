@@ -1,3 +1,6 @@
+using PretzelCore.Core.Commands;
+using PretzelCore.Core.Commands.Interfaces;
+using PretzelCore.Core.Extensions;
 using System;
 using System.Collections.Generic;
 using System.CommandLine;
@@ -5,10 +8,8 @@ using System.Composition;
 using System.IO.Abstractions;
 using System.Linq;
 using System.Threading.Tasks;
-using Pretzel.Logic.Extensions;
-using Pretzel.Logic.Import;
 
-namespace Pretzel.Logic.Commands
+namespace PretzelCore.Services.Commands
 {
     [Shared]
     [Export]
@@ -56,13 +57,13 @@ namespace Pretzel.Logic.Commands
 
             if (string.Equals("wordpress", arguments.ImportType, StringComparison.InvariantCultureIgnoreCase))
             {
-                var wordpressImporter = new WordpressImport(FileSystem, arguments.Source, arguments.ImportFile);
-                wordpressImporter.Import();
+                //var wordpressImporter = new WordpressImport(FileSystem, arguments.Source, arguments.ImportFile);
+                //wordpressImporter.Import();
             }
             else if (string.Equals("blogger", arguments.ImportType, StringComparison.InvariantCultureIgnoreCase))
             {
-                var bloggerImporter = new BloggerImport(FileSystem, arguments.Source, arguments.ImportFile);
-                bloggerImporter.Import();
+                //var bloggerImporter = new BloggerImport(FileSystem, arguments.Source, arguments.ImportFile);
+                //bloggerImporter.Import();
             }
 
             Tracing.Info("Import complete");

@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace Pretzel.Logic.Templating.Context.DataParsing
+namespace PretzelCore.Services.Templating.Context.DataParsing
 {
     internal interface IDataParser
     {

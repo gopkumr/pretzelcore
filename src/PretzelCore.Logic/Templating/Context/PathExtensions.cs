@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 
-namespace Pretzel.Logic.Templating.Context
+namespace PretzelCore.Services.Templating.Context
 {
     public static class PathExtensions
     {

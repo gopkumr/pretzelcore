@@ -1,13 +1,13 @@
+using PretzelCore.Core.Extensions;
+using PretzelCore.Services.Commands;
 using System.Collections.Generic;
 using System.CommandLine;
 using System.Composition;
 using System.IO;
 using System.IO.Abstractions;
 using System.Linq;
-using Pretzel.Logic.Commands;
-using Pretzel.Logic.Extensions;
 
-namespace Pretzel.Logic.Extensibility.Extensions
+namespace PretzelCore.Core.Extensibility.Extensions
 {
     [Export]
     [Shared]
@@ -64,9 +64,9 @@ namespace Pretzel.Logic.Extensibility.Extensions
                 fileSystem.Directory.Move(directoryToMove, Path.Combine(sourceFolder, trimStart));
             }
 
-            fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.cs"), Properties.RazorAzure.Shim);
-            fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.csproj"), Properties.RazorAzure.ShimProject);
-            fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.sln"), Properties.RazorAzure.ShimSolution);
+            fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.cs"), Services.Properties.RazorAzure.Shim);
+            fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.csproj"), Services.Properties.RazorAzure.ShimProject);
+            fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.sln"), Services.Properties.RazorAzure.ShimSolution);
 
             var currentPath = assembly.GetEntryAssemblyLocation();
             var destination = Path.Combine(directory, "Pretzel.exe");

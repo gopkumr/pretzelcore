@@ -1,11 +1,9 @@
-using System;
+using PretzelCore.Core.Extensions;
 using System.IO;
 using System.IO.Abstractions;
-using System.Linq;
-using Pretzel.Logic.Extensions;
 using YamlDotNet.RepresentationModel;
 
-namespace Pretzel.Logic.Templating.Context.DataParsing
+namespace PretzelCore.Services.Templating.Context.DataParsing
 {
     internal class YamlJsonDataParser : AbstractDataParser
     {

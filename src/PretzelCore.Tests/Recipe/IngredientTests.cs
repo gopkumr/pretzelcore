@@ -1,8 +1,8 @@
 ﻿using NSubstitute;
 using Pretzel.Logic.Extensibility;
 using Pretzel.Logic.Extensibility.Extensions;
-using Pretzel.Logic.Extensions;
 using Pretzel.Logic.Recipes;
+using PretzelCore.Services.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

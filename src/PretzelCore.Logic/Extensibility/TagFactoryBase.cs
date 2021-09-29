@@ -1,12 +1,12 @@
-using Pretzel.Logic.Extensions;
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Core.Extensions;
+using PretzelCore.Services.Templating.Context;
 
-namespace Pretzel.Logic.Extensibility
+namespace PretzelCore.Core.Extensibility
 {
     public abstract class TagFactoryBase : DotLiquid.ITagFactory
     {
         private readonly string _tageName;
-        
+
         protected SiteContext SiteContext { get; private set; }
 
         protected TagFactoryBase(string tagName)

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO.Abstractions.TestingHelpers;
-using Pretzel.Logic.Extensions;
 using Pretzel.Logic.Import;
+using PretzelCore.Services.Extensions;
 using Xunit;
 
 namespace Pretzel.Tests.Import

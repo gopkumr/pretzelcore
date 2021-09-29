@@ -1,9 +1,9 @@
+using PretzelCore.Core.Extensibility.Extensions;
+using PretzelCore.Core.Extensions;
 using System;
 using System.IO.Abstractions;
-using Pretzel.Logic.Extensibility.Extensions;
-using Pretzel.Logic.Extensions;
 
-namespace Pretzel.Logic.Recipes
+namespace PretzelCore.Services.Recipes
 {
     public class Ingredient
     {

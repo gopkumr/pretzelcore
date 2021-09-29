@@ -7,15 +7,17 @@ using System.IO.Abstractions;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Connections;
-using Pretzel.Logic;
-using Pretzel.Logic.Extensibility;
-using Pretzel.Logic.Extensions;
-using Pretzel.Logic.Hosting;
-using Pretzel.Logic.Modules;
-using Pretzel.Logic.Templating;
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Core.Commands;
+using PretzelCore.Core.Commands.Interfaces;
+using PretzelCore.Core.Configuration.Interfaces;
+using PretzelCore.Core.Extensions;
+using PretzelCore.Services.Extensibility;
+using PretzelCore.Services.Hosting;
+using PretzelCore.Services.Modules;
+using PretzelCore.Services.Templating;
+using PretzelCore.Services.Templating.Context;
 
-namespace Pretzel.Logic.Commands
+namespace PretzelCore.Services.Commands
 {
     [Shared]
     [Export]

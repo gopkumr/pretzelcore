@@ -1,8 +1,8 @@
 using NSubstitute;
 using Pretzel.Commands;
-using Pretzel.Logic;
 using Pretzel.Logic.Commands;
 using Pretzel.Logic.Extensibility;
+using PretzelCore.Services;
 using System;
 using System.Collections.Generic;
 using System.CommandLine;

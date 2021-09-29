@@ -1,10 +1,10 @@
 using System;
 using System.Linq;
 using DotLiquid;
-using Pretzel.Logic.Templating.Context;
-using Pretzel.Logic.Templating.Jekyll.Extensions;
+using PretzelCore.Services.Templating.Context;
+using PretzelCore.Services.Templating.Jekyll.Extensions;
 
-namespace Pretzel.Logic.Templating.Jekyll.Liquid
+namespace PretzelCore.Services.Templating.Jekyll
 {
     public class SiteContextDrop : Drop
     {

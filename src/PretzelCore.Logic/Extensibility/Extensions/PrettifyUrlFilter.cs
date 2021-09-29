@@ -1,7 +1,7 @@
 using System;
 using System.Composition;
 
-namespace Pretzel.Logic.Extensibility.Extensions
+namespace PretzelCore.Core.Extensibility.Extensions
 {
     [Export(typeof(IFilter))]
     public class PrettifyUrlFilter : IFilter
@@ -13,7 +13,7 @@ namespace Pretzel.Logic.Extensibility.Extensions
 
         public static string PrettifyUrl(string input)
         {
-            return input.Replace("index.html", String.Empty);
+            return input.Replace("index.html", string.Empty);
         }
     }
 }

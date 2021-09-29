@@ -1,6 +1,6 @@
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Services.Templating.Context;
 
-namespace Pretzel.Logic.Templating
+namespace PretzelCore.Services.Templating
 {
     public interface ISiteEngine
     {

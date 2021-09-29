@@ -1,7 +1,7 @@
-﻿using DotLiquid;
+using DotLiquid;
 using System.IO;
 
-namespace Pretzel.Logic.Liquid
+namespace PretzelCore.Services.Liquid
 {
     public class HighlightBlock : Block
     {

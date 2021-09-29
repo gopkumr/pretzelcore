@@ -1,3 +1,14 @@
+using DotLiquid;
+using NSubstitute;
+using PretzelCore.Core.Configuration.Interfaces;
+using PretzelCore.Core.Exceptions;
+using PretzelCore.Core.Extensibility;
+using PretzelCore.Core.Extensibility.Extensions;
+using PretzelCore.Core.Extensions;
+using PretzelCore.Services.Configuration;
+using PretzelCore.Services.Liquid;
+using PretzelCore.Services.Templating.Context;
+using PretzelCore.Services.Templating.Jekyll;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -5,16 +16,6 @@ using System.IO.Abstractions;
 using System.IO.Abstractions.TestingHelpers;
 using System.Linq;
 using System.Text;
-using DotLiquid;
-using NSubstitute;
-using Pretzel.Logic;
-using Pretzel.Logic.Exceptions;
-using Pretzel.Logic.Extensibility;
-using Pretzel.Logic.Extensibility.Extensions;
-using Pretzel.Logic.Extensions;
-using Pretzel.Logic.Liquid;
-using Pretzel.Logic.Templating.Context;
-using Pretzel.Logic.Templating.Jekyll;
 using Xunit;
 
 namespace Pretzel.Tests.Templating.Jekyll

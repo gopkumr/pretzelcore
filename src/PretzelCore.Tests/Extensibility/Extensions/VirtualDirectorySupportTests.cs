@@ -3,6 +3,7 @@ using System.IO.Abstractions;
 using NSubstitute;
 using Pretzel.Logic.Extensibility.Extensions;
 using Pretzel.Logic.Templating.Context;
+using PretzelCore.Services.Templating.Context;
 using Xunit;
 
 namespace Pretzel.Tests.Extensibility.Extensions

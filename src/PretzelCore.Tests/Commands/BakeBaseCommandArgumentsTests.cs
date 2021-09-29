@@ -1,6 +1,4 @@
-using System;
-using System.Linq;
-using Pretzel.Logic.Commands;
+using PretzelCore.Services.Commands;
 using Xunit;
 
 namespace Pretzel.Tests.Commands
@@ -16,6 +14,6 @@ namespace Pretzel.Tests.Commands
             var sut = BuildArguments(argument);
 
             Assert.True(sut.CleanTarget);
-        }  
+        }
     }
 }

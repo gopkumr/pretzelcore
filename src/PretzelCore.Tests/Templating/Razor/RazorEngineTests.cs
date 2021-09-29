@@ -1,14 +1,13 @@
-using Pretzel.Logic;
-using Pretzel.Logic.Extensibility;
-using Pretzel.Logic.Extensibility.Extensions;
-using Pretzel.Logic.Templating.Context;
-using Pretzel.Logic.Templating.Razor;
 using Pretzel.Tests.Templating.Jekyll;
+using PretzelCore.Core.Extensibility;
+using PretzelCore.Core.Extensibility.Extensions;
+using PretzelCore.Services.Configuration;
+using PretzelCore.Services.Templating.Context;
+using PretzelCore.Services.Templating.Razor;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Abstractions.TestingHelpers;
-using System.Linq;
 using Xunit;
 
 namespace Pretzel.Tests.Templating.Razor

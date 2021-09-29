@@ -1,7 +1,7 @@
 using DotLiquid;
 using System.Collections.Generic;
 
-namespace Pretzel.Logic.Templating.Context
+namespace PretzelCore.Services.Templating.Context
 {
     public class Tag : Drop
     {

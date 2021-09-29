@@ -1,6 +1,6 @@
 using System.Security;
 
-namespace Pretzel.Logic.Liquid
+namespace PretzelCore.Services.Liquid
 {
     public static class XmlEscapeFilter
     {

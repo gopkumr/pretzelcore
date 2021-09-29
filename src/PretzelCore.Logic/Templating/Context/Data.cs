@@ -1,12 +1,11 @@
+using DotLiquid;
+using PretzelCore.Services.Templating.Context.DataParsing;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Abstractions;
-using System.Linq;
-using DotLiquid;
-using Pretzel.Logic.Templating.Context.DataParsing;
 
-namespace Pretzel.Logic.Templating.Context
+namespace PretzelCore.Services.Templating.Context
 {
     public class Data : Drop
     {

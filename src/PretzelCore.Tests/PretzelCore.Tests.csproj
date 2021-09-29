@@ -22,8 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PretzelCore.Logic\PretzelCore.Logic.csproj" />
-    <ProjectReference Include="..\PretzelCore\PretzelCore.csproj" />
+    <ProjectReference Include="..\PretzelCore.Interface\PretzelCore.Interface.csproj" />
+    <ProjectReference Include="..\PretzelCore.Logic\PretzelCore.Services.csproj" />
+    <ProjectReference Include="..\PretzelCore\PretzelCore.Interface.csproj" />
   </ItemGroup>
 
 </Project>

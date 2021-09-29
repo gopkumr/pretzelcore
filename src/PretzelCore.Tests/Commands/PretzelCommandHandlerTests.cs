@@ -8,9 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using NSubstitute;
 using Pretzel.Commands;
-using Pretzel.Logic;
 using Pretzel.Logic.Commands;
 using Pretzel.Logic.Extensibility;
+using PretzelCore.Services;
 using Xunit;
 
 namespace Pretzel.Tests.Commands

@@ -1,8 +1,9 @@
+using PretzelCore.Core.Configuration.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Pretzel.Logic.Templating.Context
+namespace PretzelCore.Services.Templating.Context
 {
     public class SiteContext
     {
@@ -19,7 +20,7 @@ namespace Pretzel.Logic.Templating.Context
         public IEnumerable<Category> Categories { get; set; }
         public IList<Page> Posts { get; set; }
         public DateTime Time { get; set; }
-        public Boolean UseDrafts { get; set; }
+        public bool UseDrafts { get; set; }
 
         public List<Page> Pages { get; set; }
 
@@ -87,7 +88,7 @@ namespace Pretzel.Logic.Templating.Context
             Categories = new List<Category>();
             Posts = new List<Page>();
             Pages = new List<Page>();
-            Config = new Configuration();
+            Config = new PretzelCore.Services.Configuration.Configuration();
         }
 
     }

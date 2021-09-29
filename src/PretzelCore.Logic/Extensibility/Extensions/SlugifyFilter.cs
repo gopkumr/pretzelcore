@@ -2,7 +2,7 @@ using System.Composition;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace Pretzel.Logic.Extensibility.Extensions
+namespace PretzelCore.Core.Extensibility.Extensions
 {
     [Export(typeof(IFilter))]
     public class SlugifyFilter : IFilter

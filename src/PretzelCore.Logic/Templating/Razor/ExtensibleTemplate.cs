@@ -1,4 +1,4 @@
-﻿using Pretzel.Logic.Extensibility;
+using PretzelCore.Core.Extensibility;
 using RazorEngine.Templating;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 
-namespace Pretzel.Logic.Templating.Razor
+namespace PretzelCore.Services.Templating.Razor
 {
     public interface IExtensibleTemplate
     {
@@ -60,17 +60,18 @@ namespace Pretzel.Logic.Templating.Razor
                 new Dictionary<string, Tuple<T, MethodInfo>>() :
                 extensibleMethods.ToDictionary(
                     x => x.Name,
-                    x => {
+                    x =>
+                    {
                         var method = x.GetType().GetMethod(x.Name);
-                        if(method.IsStatic)
+                        if (method.IsStatic)
                         {
                             return new Tuple<T, MethodInfo>((T)null, method);
                         }
-                          else
+                        else
                         {
                             return new Tuple<T, MethodInfo>(x, method);
                         }
-                        }
+                    }
                 );
         }
 

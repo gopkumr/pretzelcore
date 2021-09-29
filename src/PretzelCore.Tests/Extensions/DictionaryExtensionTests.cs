@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Pretzel.Logic.Extensions;
+using PretzelCore.Services.Extensions;
 using Xunit;
 
 namespace Pretzel.Tests.Extensions

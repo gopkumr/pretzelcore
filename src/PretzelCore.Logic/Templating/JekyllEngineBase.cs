@@ -1,8 +1,8 @@
-using Pretzel.Logic.Exceptions;
-using Pretzel.Logic.Extensibility;
-using Pretzel.Logic.Extensibility.Extensions;
-using Pretzel.Logic.Extensions;
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Core.Exceptions;
+using PretzelCore.Core.Extensibility;
+using PretzelCore.Core.Extensibility.Extensions;
+using PretzelCore.Core.Extensions;
+using PretzelCore.Services.Templating.Context;
 using System;
 using System.Collections.Generic;
 using System.Composition;
@@ -11,7 +11,7 @@ using System.IO.Abstractions;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Pretzel.Logic.Templating
+namespace PretzelCore.Services.Templating
 {
     public abstract class JekyllEngineBase : ISiteEngine
     {
@@ -236,7 +236,7 @@ namespace Pretzel.Logic.Templating
             {
                 Tracing.Info("Error ({0}) converting {1}", e.Message, file);
                 Tracing.Debug(e.ToString());
-                html = String.Format("<p><b>Error converting markdown:</b><br />{0}</p><p>Original content:<br /><pre>{1}</pre></p>", e.Message, contents);
+                html = string.Format("<p><b>Error converting markdown:</b><br />{0}</p><p>Original content:<br /><pre>{1}</pre></p>", e.Message, contents);
             }
             return html;
         }

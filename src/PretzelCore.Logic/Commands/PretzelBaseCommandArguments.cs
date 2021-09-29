@@ -1,13 +1,14 @@
-using System;
+using PretzelCore.Core.Commands;
+using PretzelCore.Core.Configuration;
+using PretzelCore.Core.Configuration.Interfaces;
+using PretzelCore.Core.Extensions;
+using PretzelCore.Services.Templating;
+using PretzelCore.Services.Templating.Context;
 using System.Collections.Generic;
 using System.CommandLine;
 using System.IO.Abstractions;
-using System.Linq;
-using Pretzel.Logic.Extensions;
-using Pretzel.Logic.Templating;
-using Pretzel.Logic.Templating.Context;
 
-namespace Pretzel.Logic.Commands
+namespace PretzelCore.Services.Commands
 {
     public abstract class PretzelBaseCommandArguments : BaseCommandArguments, ISourcePathProvider
     {
@@ -20,7 +21,7 @@ namespace Pretzel.Logic.Commands
 
         protected override IEnumerable<Option> CreateOptions() => new[]
         {
-            new Option(new []{ "-t", "--template" }, "The templating engine to use"),
+            new Option(new []{ "-t", "--template" }, "The templating engine to use", argumentType: typeof(string)),
             new Option(new [] { "-d", "--destination" }, description:"The path to the destination site (default _site)", getDefaultValue: ()=>"_site"),
             new Option("--drafts", "Add the posts in the drafts folder")
         };

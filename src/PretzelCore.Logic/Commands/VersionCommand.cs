@@ -1,12 +1,14 @@
+using PretzelCore.Core.Commands;
+using PretzelCore.Core.Commands.Interfaces;
+using PretzelCore.Core.Extensions;
 using System;
 using System.Collections.Generic;
 using System.CommandLine;
 using System.Composition;
 using System.Reflection;
 using System.Threading.Tasks;
-using Pretzel.Logic.Extensions;
 
-namespace Pretzel.Logic.Commands
+namespace PretzelCore.Services.Commands
 {
     [Shared]
     [Export]

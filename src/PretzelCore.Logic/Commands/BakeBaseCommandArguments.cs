@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.CommandLine;
 using System.IO.Abstractions;
 
-namespace Pretzel.Logic.Commands
+namespace PretzelCore.Services.Commands
 {
     public abstract class BakeBaseCommandArguments : PretzelBaseCommandArguments
     {

@@ -3,7 +3,7 @@ using System.IO;
 using System.IO.Abstractions;
 using System.Linq;
 
-namespace Pretzel.Logic.Templating.Context.DataParsing
+namespace PretzelCore.Services.Templating.Context.DataParsing
 {
     internal abstract class AbstractDataParser : IDataParser
     {

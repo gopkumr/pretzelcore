@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using CsvHelper;
 
-namespace Pretzel.Logic.Templating.Context.DataParsing
+namespace PretzelCore.Services.Templating.Context.DataParsing
 {
     internal class CsvTsvDataParser : AbstractDataParser
     {
@@ -33,7 +33,7 @@ namespace Pretzel.Logic.Templating.Context.DataParsing
                 DetectColumnCountChanges = false,
                 Encoding = Encoding.UTF8,
                 HasHeaderRecord = true,
-                IgnoreBlankLines = true, 
+                IgnoreBlankLines = true,
                 //IgnoreQuotes = false,
                 HeaderValidated = null,
                 MissingFieldFound = null,

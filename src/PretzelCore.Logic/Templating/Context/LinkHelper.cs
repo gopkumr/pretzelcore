@@ -1,3 +1,4 @@
+using PretzelCore.Core.Extensibility.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Composition;
@@ -5,9 +6,8 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Pretzel.Logic.Extensibility.Extensions;
 
-namespace Pretzel.Logic.Templating.Context
+namespace PretzelCore.Services.Templating.Context
 {
     [Export]
     public sealed class LinkHelper

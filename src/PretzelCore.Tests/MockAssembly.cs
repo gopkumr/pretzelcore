@@ -1,4 +1,4 @@
-﻿using Pretzel.Logic.Extensions;
+﻿using PretzelCore.Services.Extensions;
 
 namespace Pretzel.Tests
 {

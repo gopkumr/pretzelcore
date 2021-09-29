@@ -1,7 +1,7 @@
 using System.Composition;
 using System.Text.RegularExpressions;
 
-namespace Pretzel.Logic.Extensibility.Extensions
+namespace PretzelCore.Core.Extensibility.Extensions
 {
     [Export(typeof(IContentTransform))]
     public class WebSequenceDiagrams : IContentTransform
@@ -29,7 +29,7 @@ namespace Pretzel.Logic.Extensibility.Extensions
             });
 
             if (contentIncludesASequenceDiagram)
-            { 
+            {
                 content += JS_Script;
             }
 

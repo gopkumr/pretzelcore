@@ -1,14 +1,12 @@
-using System;
-using System.Globalization;
-using System.Threading.Tasks;
-using Pretzel.Logic.Extensions;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using System.IO;
 using Microsoft.Extensions.Logging;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
-namespace Pretzel.Logic.Hosting
+namespace PretzelCore.Services.Hosting
 {
     public class AspNetCoreWebHost : IDisposable
     {

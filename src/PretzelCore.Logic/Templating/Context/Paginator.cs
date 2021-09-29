@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using DotLiquid;
 
-namespace Pretzel.Logic.Templating.Context
+namespace PretzelCore.Services.Templating.Context
 {
     public class Paginator : Drop
     {
         private readonly SiteContext site;
-        
+
         public int TotalPages { get; set; }
         public int TotalPosts { get; set; }
         public int PerPage { get; set; }
@@ -21,7 +21,7 @@ namespace Pretzel.Logic.Templating.Context
         private IList<Page> posts;
         public IList<Page> Posts
         {
-            get { return posts ?? (posts = site.Posts.Skip((Page-1) * PerPage).Take(PerPage).ToList()); }
+            get { return posts ?? (posts = site.Posts.Skip((Page - 1) * PerPage).Take(PerPage).ToList()); }
         }
 
         public Paginator(SiteContext site, int totalPages, int perPage, int page)

@@ -1,10 +1,10 @@
-using System.Collections.Generic;
-using System.IO.Abstractions;
-using System.IO;
 using NUglify;
-using Pretzel.Logic.Extensions;
+using PretzelCore.Core.Extensions;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Abstractions;
 
-namespace Pretzel.Logic.Minification
+namespace PretzelCore.Services.Minification
 {
     public class JsMinifier
     {
@@ -23,9 +23,9 @@ namespace Pretzel.Logic.Minification
         {
             var content = fileSystem.BundleFiles(files);
             var minified = Uglify.Js(content);
-            if(minified.HasErrors)
+            if (minified.HasErrors)
             {
-                foreach(var error in minified.Errors)
+                foreach (var error in minified.Errors)
                 {
                     Tracing.Error(error.ToString());
                 }

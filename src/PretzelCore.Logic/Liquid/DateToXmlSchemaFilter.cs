@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Xml;
 
-namespace Pretzel.Logic.Liquid
+namespace PretzelCore.Services.Liquid
 {
     public static class DateToXmlSchemaFilter
     {

@@ -1,13 +1,12 @@
 using DotLiquid;
-using Pretzel.Logic.Extensions;
-using Pretzel.Logic.Liquid;
-using Pretzel.Logic.Templating.Context;
-using Pretzel.Logic.Templating.Jekyll.Liquid;
+using PretzelCore.Core.Extensions;
+using PretzelCore.Services.Liquid;
+using PretzelCore.Services.Templating.Context;
 using System;
 using System.Composition;
 using System.Text.RegularExpressions;
 
-namespace Pretzel.Logic.Templating.Jekyll
+namespace PretzelCore.Services.Templating.Jekyll
 {
     [Shared]
     [SiteEngineInfo(Engine = "liquid")]
@@ -24,7 +23,7 @@ namespace Pretzel.Logic.Templating.Jekyll
         protected override void PreProcess()
         {
             contextDrop = new SiteContextDrop(Context);
-            
+
             Template.FileSystem = new Includes(Context.SourceFolder, FileSystem);
 
             if (Filters != null)
@@ -40,11 +39,11 @@ namespace Pretzel.Logic.Templating.Jekyll
 
                 foreach (var tag in Tags)
                 {
-                        var registerTagGenericMethod = registerTagMethod.MakeGenericMethod(new[] { tag.GetType() });
-                        registerTagGenericMethod.Invoke(null, new[] { tag.Name.ToUnderscoreCase() });
+                    var registerTagGenericMethod = registerTagMethod.MakeGenericMethod(new[] { tag.GetType() });
+                    registerTagGenericMethod.Invoke(null, new[] { tag.Name.ToUnderscoreCase() });
                 }
             }
-            if(TagFactories!=null)
+            if (TagFactories != null)
             {
                 foreach (var tagFactory in TagFactories)
                 {

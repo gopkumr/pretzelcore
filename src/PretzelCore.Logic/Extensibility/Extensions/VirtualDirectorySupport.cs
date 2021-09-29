@@ -4,10 +4,12 @@ using System.Composition;
 using System.IO.Abstractions;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Pretzel.Logic.Commands;
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Core.Commands;
+using PretzelCore.Services.Commands;
+using PretzelCore.Services.Extensibility;
+using PretzelCore.Services.Templating.Context;
 
-namespace Pretzel.Logic.Extensibility.Extensions
+namespace PretzelCore.Core.Extensibility.Extensions
 {
     [Export]
     [Shared]

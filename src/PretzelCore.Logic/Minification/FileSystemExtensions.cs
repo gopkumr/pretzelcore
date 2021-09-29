@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
 using System.IO.Abstractions;
 
-namespace Pretzel.Logic.Minification
+namespace PretzelCore.Services.Minification
 {
     public static class FileSystemExtensions
     {

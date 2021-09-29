@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Abstractions;
 
-namespace Pretzel.Logic.Templating.Razor
+namespace PretzelCore.Services.Templating.Razor
 {
     internal class IncludesResolver : ITemplateManager
     {
@@ -31,7 +31,7 @@ namespace Pretzel.Logic.Templating.Razor
             {
                 foreach (var ext in new[] { ".cshtml", ".html", ".htm" })
                 {
-                    var testPath = String.Concat(templatePath, ext);
+                    var testPath = string.Concat(templatePath, ext);
                     templateExists = fileSystem.File.Exists(testPath);
                     if (templateExists)
                     {
@@ -41,7 +41,7 @@ namespace Pretzel.Logic.Templating.Razor
                 }
             }
 
-            var template = templateExists ? fileSystem.File.ReadAllText(templatePath) : String.Empty;
+            var template = templateExists ? fileSystem.File.ReadAllText(templatePath) : string.Empty;
 
             return new LoadedTemplateSource(template, null);
         }

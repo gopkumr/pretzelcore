@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 
-namespace Pretzel.Logic
+namespace PretzelCore.Services
 {
     [ExcludeFromCodeCoverage]
     public static class SanityCheck
@@ -126,7 +126,7 @@ namespace Pretzel.Logic
             IntPtr ipObjectType = Marshal.AllocHGlobal(objBasic.TypeInformationLength);
             nLength = objBasic.TypeInformationLength;
             // this one never locks...
-            while ((uint)(Win32API.NtQueryObject(ipHandle, (int)Win32API.ObjectInformationClass.ObjectTypeInformation, ipObjectType, nLength, ref nLength)) == Win32API.STATUS_INFO_LENGTH_MISMATCH)
+            while ((uint)Win32API.NtQueryObject(ipHandle, (int)Win32API.ObjectInformationClass.ObjectTypeInformation, ipObjectType, nLength, ref nLength) == Win32API.STATUS_INFO_LENGTH_MISMATCH)
             {
                 if (nLength == 0)
                 {
@@ -157,7 +157,7 @@ namespace Pretzel.Logic
             var ipObjectName = Marshal.AllocHGlobal(nLength);
 
             // ...this call sometimes hangs. Is a Windows error.
-            while ((uint)(Win32API.NtQueryObject(ipHandle, (int)Win32API.ObjectInformationClass.ObjectNameInformation, ipObjectName, nLength, ref nLength)) == Win32API.STATUS_INFO_LENGTH_MISMATCH)
+            while ((uint)Win32API.NtQueryObject(ipHandle, (int)Win32API.ObjectInformationClass.ObjectNameInformation, ipObjectName, nLength, ref nLength) == Win32API.STATUS_INFO_LENGTH_MISMATCH)
             {
                 Marshal.FreeHGlobal(ipObjectName);
                 if (nLength == 0)
@@ -413,7 +413,7 @@ namespace Pretzel.Logic
                 public byte Flags; // 0x01 = PROTECT_FROM_CLOSE, 0x02 = INHERIT
                 public ushort Handle;
                 public int Object_Pointer;
-                public UInt32 GrantedAccess;
+                public uint GrantedAccess;
             }
 
             public const int MAX_PATH = 260;

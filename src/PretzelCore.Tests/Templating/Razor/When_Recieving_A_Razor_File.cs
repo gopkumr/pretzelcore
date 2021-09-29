@@ -1,6 +1,6 @@
 using Pretzel.Logic.Templating.Context;
-using Pretzel.Logic.Templating.Razor;
 using Pretzel.Tests.Templating.Jekyll;
+using PretzelCore.Services.Templating.Razor;
 using System.Collections.Generic;
 using System.IO.Abstractions.TestingHelpers;
 using Xunit;

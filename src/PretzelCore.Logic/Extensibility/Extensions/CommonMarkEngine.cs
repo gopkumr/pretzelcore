@@ -1,4 +1,6 @@
-﻿namespace Pretzel.Logic.Extensibility.Extensions
+
+
+namespace PretzelCore.Core.Extensibility.Extensions
 {
     internal class CommonMarkEngine : ILightweightMarkupEngine
     {

@@ -4,15 +4,15 @@ using dotless.Core.Input;
 using dotless.Core.Parser;
 using dotless.Core.Stylizers;
 using HtmlAgilityPack;
-using Pretzel.Logic.Extensibility;
-using Pretzel.Logic.Templating.Context;
+using PretzelCore.Services.Extensibility;
+using PretzelCore.Services.Templating.Context;
 using System.Collections.Generic;
 using System.Composition;
 using System.IO;
 using System.IO.Abstractions;
 using System.Linq;
 
-namespace Pretzel.Logic.Minification
+namespace PretzelCore.Services.Minification
 {
     [Export(typeof(ITransform))]
     public class LessTransform : ITransform

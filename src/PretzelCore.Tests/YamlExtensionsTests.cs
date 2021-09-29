@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
-using Pretzel.Logic.Extensions;
 using Xunit;
 using System;
+using PretzelCore.Services.Extensions;
 
 namespace Pretzel.Tests
 {

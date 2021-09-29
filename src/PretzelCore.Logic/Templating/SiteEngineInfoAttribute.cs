@@ -1,7 +1,7 @@
 using System;
 using System.Composition;
 
-namespace Pretzel.Logic.Templating
+namespace PretzelCore.Services.Templating
 {
     [MetadataAttribute]
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]

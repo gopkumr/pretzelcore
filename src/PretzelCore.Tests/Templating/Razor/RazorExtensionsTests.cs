@@ -1,4 +1,4 @@
-﻿using Pretzel.Logic.Templating.Context;
+﻿using PretzelCore.Services.Templating.Context;
 using Xunit;
 
 namespace Pretzel.Tests.Templating.Razor

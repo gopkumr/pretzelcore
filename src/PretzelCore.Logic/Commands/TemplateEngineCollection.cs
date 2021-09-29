@@ -1,9 +1,8 @@
-using System;
+using PretzelCore.Services.Templating;
 using System.Collections.Generic;
 using System.Composition;
-using Pretzel.Logic.Templating;
 
-namespace Pretzel.Logic.Commands
+namespace PretzelCore.Services.Commands
 {
     [Export]
     [Shared]
