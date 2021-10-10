@@ -20,15 +20,6 @@ namespace PretzelCore.Services.Commands
     {
         [ImportingConstructor]
         public RecipeCommandArguments(IFileSystem fileSystem) : base(fileSystem) { }
-
-        protected override IEnumerable<Option> CreateOptions() => base.CreateOptions().Concat(new[]
-        {
-            new Option(new [] { "-p", "--withproject" }, "Includes a layout VS Solution, to give intellisense when editing razor layout files", argumentType: typeof(bool)),
-            new Option(new [] { "-w", "--wiki"}, "Creates a wiki instead of a blog (razor template only)", argumentType: typeof(bool))
-        });
-
-        public bool WithProject { get; set; }
-        public bool Wiki { get; set; }
     }
 
     [Shared]
@@ -65,7 +56,7 @@ namespace PretzelCore.Services.Commands
 
             Tracing.Info("Using {0} Engine", engine);
 
-            var recipe = new Recipe(FileSystem, engine, arguments.Source, AdditionalIngredients, arguments.WithProject, arguments.Wiki, arguments.Drafts);
+            var recipe = new Recipe(FileSystem, engine, arguments.Source, AdditionalIngredients);
             recipe.Create();
 
             return Task.FromResult(0);

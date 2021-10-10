@@ -64,9 +64,9 @@ namespace PretzelCore.Core.Extensibility.Extensions
                 fileSystem.Directory.Move(directoryToMove, Path.Combine(sourceFolder, trimStart));
             }
 
-            fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.cs"), Services.Properties.RazorAzure.Shim);
-            fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.csproj"), Services.Properties.RazorAzure.ShimProject);
-            fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.sln"), Services.Properties.RazorAzure.ShimSolution);
+            //fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.cs"), Services.Properties.RazorAzure.Shim);
+            //fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.csproj"), Services.Properties.RazorAzure.ShimProject);
+            //fileSystem.File.WriteAllText(Path.Combine(directory, @"Shim.sln"), Services.Properties.RazorAzure.ShimSolution);
 
             var currentPath = assembly.GetEntryAssemblyLocation();
             var destination = Path.Combine(directory, "Pretzel.exe");

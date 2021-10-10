@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Templating\Razor\RazorSiteEngine-bak.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\25.png" />
     <None Remove="Resources\favicon.ico" />
     <None Remove="Resources\favicon.png" />
@@ -38,7 +42,7 @@
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="5.0.10" />
     <PackageReference Include="NUglify" Version="1.16.0" />
-    <PackageReference Include="RazorEngine" Version="3.10.0" />
+    <PackageReference Include="RazorEngine.NetCore" Version="3.1.0" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21308.1" />
     <PackageReference Include="System.Composition" Version="5.0.1" />
     <PackageReference Include="System.Globalization" Version="4.3.0" />

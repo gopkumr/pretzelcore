@@ -2,6 +2,7 @@ using PretzelCore.Core.Commands;
 using PretzelCore.Core.Commands.Interfaces;
 using PretzelCore.Core.Extensions;
 using PretzelCore.Services.Extensibility;
+using PretzelCore.Services.Templating;
 using PretzelCore.Services.Templating.Context;
 using System.Collections.Generic;
 using System.Composition;
@@ -39,6 +40,9 @@ namespace PretzelCore.Services.Commands
         public IEnumerable<ITransform> Transforms { get; set; }
 
         [Import]
+        public StaticContentHandler StaticContentHandler { get; set; }
+
+        [Import]
         public IFileSystem FileSystem { get; set; }
 
         protected override Task<int> Execute(BakeCommandArguments arguments)
@@ -57,17 +61,23 @@ namespace PretzelCore.Services.Commands
                 arguments.DetectFromDirectory(TemplateEngines.Engines, siteContext);
             }
 
-            var engine = TemplateEngines[arguments.Template];
-            if (engine != null)
+            var renderingEngine = TemplateEngines[arguments.Template];
+            var markdownEngine= TemplateEngines["markdown"];
+            if (renderingEngine != null)
             {
                 var watch = new Stopwatch();
                 watch.Start();
-                engine.Initialize();
-                engine.Process(siteContext);
+
+                this.StaticContentHandler.Process(siteContext);
+                markdownEngine.Initialize();
+                markdownEngine.Process(siteContext);
+
+                renderingEngine.Initialize();
+                renderingEngine.Process(siteContext);
                 foreach (var t in Transforms)
                     t.Transform(siteContext);
 
-                engine.CompressSitemap(siteContext, FileSystem);
+                renderingEngine.CompressSitemap(siteContext, FileSystem);
 
                 watch.Stop();
                 Tracing.Info("done - took {0}ms", watch.ElapsedMilliseconds);
