@@ -54,7 +54,6 @@ namespace PretzelCore.Services.Templating.Razor
 
         public void Process(SiteContext context, bool skipFileOnError = false)
         {
-
             Tracing.Debug("Rendering Engine: {0}", this.GetType().Name);
 
             _context = context;
@@ -87,9 +86,7 @@ namespace PretzelCore.Services.Templating.Razor
             }
 
             if (extension.IsMarkdownFile() || extension.IsRazorFile())
-            {
                 page.OutputFile = page.OutputFile.Replace(extension, ".html");
-            }
 
             var pageContext = PageContext.FromPage(_context, page, outputDirectory, page.OutputFile);
             pageContext.Content = RenderTemplate(pageContext.Content, pageContext);
@@ -188,10 +185,10 @@ namespace PretzelCore.Services.Templating.Razor
                 //ConfigureCompilerBuilder = builder => ModelDirective.Register(builder)
             };
             serviceConfiguration.Activator = new ExtensibleActivator(serviceConfiguration.Activator, Filters, _allTags);
-              
+
             Engine.Razor = RazorEngineService.Create(serviceConfiguration);
 
-            content = Regex.Replace(content, "<p>(@model .*?)</p>", "$1");
+            content = Regex.Replace(content, "(@model \\w*.*)", "");
 
             var pageContent = pageData.Content;
             pageData.Content = pageData.FullContent;

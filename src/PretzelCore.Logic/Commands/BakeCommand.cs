@@ -37,11 +37,8 @@ namespace PretzelCore.Services.Commands
         [Import]
         public SiteContextGenerator Generator { get; set; }
 
-        [ImportMany]
-        public IEnumerable<ITransform> Transforms { get; set; }
-
         [Import]
-        public StaticContentHandler StaticContentHandler { get; set; }
+        public PretzelSiteGenerator SiteGenerator { get; set; }
 
         [Import]
         public IFileSystem FileSystem { get; set; }
@@ -69,23 +66,16 @@ namespace PretzelCore.Services.Commands
                 var watch = new Stopwatch();
                 watch.Start();
 
-                this.StaticContentHandler.Process(siteContext);
-                markdownEngine.Initialize();
-                markdownEngine.Process(siteContext);
-
-                renderingEngine.Initialize();
-                renderingEngine.Process(siteContext);
-                foreach (var t in Transforms)
-                    t.Transform(siteContext);
-
-                renderingEngine.CompressSitemap(siteContext, FileSystem);
+                SiteGenerator.SetSourceContentEngine(markdownEngine)
+                             .SetTemplatingEngine(renderingEngine)
+                             .GenerateSite(siteContext);
 
                 watch.Stop();
                 Tracing.Info("done - took {0}ms", watch.ElapsedMilliseconds);
             }
             else
             {
-                Tracing.Info("Cannot find engine for input: '{0}'", arguments.Template);
+                Tracing.Error("Cannot find engine for input: '{0}'", arguments.Template);
                 return Task.FromResult(1);
             }
             return Task.FromResult(0);
