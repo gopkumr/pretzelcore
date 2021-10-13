@@ -5,11 +5,12 @@ using System.IO.Abstractions;
 using System.Linq;
 using System.Text.RegularExpressions;
 using PretzelCore.Core.Commands;
+using PretzelCore.Core.Extensibility;
+using PretzelCore.Core.Extensions;
+using PretzelCore.Core.Templating.Context;
 using PretzelCore.Services.Commands;
-using PretzelCore.Services.Extensibility;
-using PretzelCore.Services.Templating.Context;
 
-namespace PretzelCore.Core.Extensibility.Extensions
+namespace PretzelCore.Services.Extensions
 {
     [Export]
     [Shared]

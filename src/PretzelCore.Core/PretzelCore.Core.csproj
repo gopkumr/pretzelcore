@@ -5,14 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="SanityCheck.cs" />
+    <Compile Remove="Templating\Context\SiteContextGenerator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.1.1" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21308.1" />
     <PackageReference Include="System.Composition" Version="5.0.1" />
     <PackageReference Include="System.IO.Abstractions" Version="13.2.47" />
     <PackageReference Include="YamlDotNet" Version="11.2.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Templating\" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,9 @@
 using PretzelCore.Core.Exceptions;
 using PretzelCore.Core.Extensibility;
 using PretzelCore.Core.Extensions;
-using PretzelCore.Services.Templating.Context;
+using PretzelCore.Core.Telemetry;
+using PretzelCore.Core.Templating;
+using PretzelCore.Core.Templating.Context;
 using RazorEngine;
 using RazorEngine.Configuration;
 using RazorEngine.Templating;

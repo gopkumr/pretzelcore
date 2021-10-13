@@ -1,12 +1,13 @@
 using DotLiquid;
 using PretzelCore.Core.Extensions;
+using PretzelCore.Core.Templating;
+using PretzelCore.Core.Templating.Context;
 using PretzelCore.Services.Liquid;
-using PretzelCore.Services.Templating.Context;
 using System;
 using System.Composition;
 using System.Text.RegularExpressions;
 
-namespace PretzelCore.Services.Templating.Jekyll
+namespace PretzelCore.Services.Templating.Liquid
 {
     [Shared]
     [SiteEngineInfo(Engine = "liquid")]

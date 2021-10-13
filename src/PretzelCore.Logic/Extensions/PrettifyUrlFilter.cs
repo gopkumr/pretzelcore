@@ -1,7 +1,8 @@
+using PretzelCore.Core.Extensibility;
 using System;
 using System.Composition;
 
-namespace PretzelCore.Core.Extensibility.Extensions
+namespace PretzelCore.Services.Extensions
 {
     [Export(typeof(IFilter))]
     public class PrettifyUrlFilter : IFilter

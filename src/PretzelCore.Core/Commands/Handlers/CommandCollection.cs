@@ -6,6 +6,7 @@ using PretzelCore.Core.Configuration;
 using PretzelCore.Core.Commands.Interfaces;
 using PretzelCore.Core.Extensibility;
 using PretzelCore.Core.Configuration.Interfaces;
+using PretzelCore.Core.Extensions;
 
 namespace PretzelCore.Core.Commands.Handlers
 {

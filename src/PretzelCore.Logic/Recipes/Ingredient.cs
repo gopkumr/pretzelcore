@@ -1,5 +1,6 @@
-using PretzelCore.Core.Extensibility.Extensions;
 using PretzelCore.Core.Extensions;
+using PretzelCore.Core.Telemetry;
+using PretzelCore.Services.Extensions;
 using System;
 using System.IO.Abstractions;
 

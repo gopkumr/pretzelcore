@@ -4,9 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Composition;
 using PretzelCore.Core.Exceptions;
-using PretzelCore.Services.Templating.Context;
+using PretzelCore.Core.Templating.Context;
+using PretzelCore.Core.Extensibility;
 
-namespace PretzelCore.Core.Extensibility.Extensions
+namespace PretzelCore.Services.Extensions
 {
     public class PostUrlTag : DotLiquid.Tag, ITag
     {

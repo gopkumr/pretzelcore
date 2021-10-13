@@ -1,6 +1,6 @@
 using PretzelCore.Core.Templating.Context;
 
-namespace PretzelCore.Services.Extensibility
+namespace PretzelCore.Core.Extensibility
 {
     public interface IBeforeProcessingTransform
     {

@@ -1,5 +1,6 @@
 using HtmlAgilityPack;
 using PretzelCore.Core.Extensions;
+using PretzelCore.Core.Telemetry;
 using System;
 using System.Collections.Generic;
 using System.Text;

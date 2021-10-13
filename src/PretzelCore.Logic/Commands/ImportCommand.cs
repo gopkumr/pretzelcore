@@ -1,6 +1,7 @@
 using PretzelCore.Core.Commands;
 using PretzelCore.Core.Commands.Interfaces;
 using PretzelCore.Core.Extensions;
+using PretzelCore.Core.Telemetry;
 using System;
 using System.Collections.Generic;
 using System.CommandLine;

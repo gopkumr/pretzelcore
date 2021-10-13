@@ -1,5 +1,5 @@
 using PretzelCore.Core.Commands.Interfaces;
-using PretzelCore.Core.Extensibility;
+using PretzelCore.Core.Extensions;
 using System;
 using System.Collections.Generic;
 using System.CommandLine;

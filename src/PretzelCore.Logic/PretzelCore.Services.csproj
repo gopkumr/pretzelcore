@@ -6,6 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Templating\Context\**" />
+    <EmbeddedResource Remove="Templating\Context\**" />
+    <None Remove="Templating\Context\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Extensibility\DictionaryExtensions.cs" />
+    <Compile Remove="Extensibility\IBeforeProcessingTransform.cs" />
+    <Compile Remove="Extensibility\StringExtensions.cs" />
+    <Compile Remove="Extensibility\YamlExtensions.cs" />
     <Compile Remove="Templating\Razor\RazorSiteEngine-bak.cs" />
   </ItemGroup>
 
@@ -18,6 +28,10 @@
     <None Remove="Resources\logo.png" />
     <None Remove="Resources\Razor\RazorTemplate.zip" />
     <None Remove="Resources\Style.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Templating\Context\SiteContextGenerator.cs" />
   </ItemGroup>
 
   <ItemGroup>

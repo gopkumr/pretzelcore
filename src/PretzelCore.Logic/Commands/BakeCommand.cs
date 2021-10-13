@@ -1,7 +1,8 @@
 using PretzelCore.Core.Commands;
 using PretzelCore.Core.Commands.Interfaces;
+using PretzelCore.Core.Extensibility;
 using PretzelCore.Core.Extensions;
-using PretzelCore.Services.Extensibility;
+using PretzelCore.Core.Telemetry;
 using PretzelCore.Services.Templating;
 using PretzelCore.Services.Templating.Context;
 using System.Collections.Generic;
@@ -62,7 +63,7 @@ namespace PretzelCore.Services.Commands
             }
 
             var renderingEngine = TemplateEngines[arguments.Template];
-            var markdownEngine= TemplateEngines["markdown"];
+            var markdownEngine = TemplateEngines["markdown"];
             if (renderingEngine != null)
             {
                 var watch = new Stopwatch();

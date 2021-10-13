@@ -1,7 +1,8 @@
+using PretzelCore.Core.Extensibility;
 using System;
 using System.Composition;
 
-namespace PretzelCore.Services.Templating
+namespace PretzelCore.Core.Templating
 {
     [MetadataAttribute]
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]

@@ -1,5 +1,6 @@
+using PretzelCore.Core.Extensibility;
+using PretzelCore.Core.Templating.Context;
 using PretzelCore.Services.Templating;
-using PretzelCore.Services.Templating.Context;
 using System.IO.Abstractions;
 
 namespace PretzelCore.Core.Extensions

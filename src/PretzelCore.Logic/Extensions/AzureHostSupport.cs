@@ -1,4 +1,6 @@
+using PretzelCore.Core.Extensibility;
 using PretzelCore.Core.Extensions;
+using PretzelCore.Core.Telemetry;
 using PretzelCore.Services.Commands;
 using System.Collections.Generic;
 using System.CommandLine;
@@ -7,7 +9,7 @@ using System.IO;
 using System.IO.Abstractions;
 using System.Linq;
 
-namespace PretzelCore.Core.Extensibility.Extensions
+namespace PretzelCore.Services.Extensions
 {
     [Export]
     [Shared]

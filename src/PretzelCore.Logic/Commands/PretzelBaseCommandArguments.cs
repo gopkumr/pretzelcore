@@ -1,9 +1,11 @@
 using PretzelCore.Core.Commands;
 using PretzelCore.Core.Configuration;
 using PretzelCore.Core.Configuration.Interfaces;
+using PretzelCore.Core.Extensibility;
 using PretzelCore.Core.Extensions;
+using PretzelCore.Core.Telemetry;
+using PretzelCore.Core.Templating.Context;
 using PretzelCore.Services.Templating;
-using PretzelCore.Services.Templating.Context;
 using System.Collections.Generic;
 using System.CommandLine;
 using System.IO.Abstractions;

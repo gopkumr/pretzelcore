@@ -1,7 +1,8 @@
 using PretzelCore.Core.Configuration.Interfaces;
 using PretzelCore.Core.Extensibility;
 using PretzelCore.Core.Extensions;
-using PretzelCore.Services.Extensibility;
+using PretzelCore.Core.Telemetry;
+using PretzelCore.Core.Templating.Context;
 using System;
 using System.Collections.Generic;
 using System.Composition;

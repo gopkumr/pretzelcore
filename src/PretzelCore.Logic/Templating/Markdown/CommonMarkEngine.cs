@@ -1,6 +1,7 @@
+using PretzelCore.Core.Extensibility;
 using System.Composition;
 
-namespace PretzelCore.Core.Extensibility.Extensions
+namespace PretzelCore.Services.Templating.Markdown
 {
     [Export(typeof(ILightweightMarkupEngine))]
     internal class CommonMarkEngine : ILightweightMarkupEngine

@@ -1,5 +1,5 @@
 using PretzelCore.Core.Extensions;
-using PretzelCore.Services.Templating.Context;
+using PretzelCore.Core.Templating.Context;
 
 namespace PretzelCore.Core.Extensibility
 {

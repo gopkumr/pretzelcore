@@ -1,6 +1,6 @@
 using System;
 
-namespace PretzelCore.Core.Extensions
+namespace PretzelCore.Core.Telemetry
 {
     /// <summary>
     /// Trace for Pretzel

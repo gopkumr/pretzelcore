@@ -2,6 +2,7 @@ using PretzelCore.Core.Commands;
 using PretzelCore.Core.Commands.Interfaces;
 using PretzelCore.Core.Extensibility;
 using PretzelCore.Core.Extensions;
+using PretzelCore.Core.Telemetry;
 using PretzelCore.Services.Recipes;
 using System;
 using System.Collections.Generic;

@@ -1,8 +1,9 @@
+using PretzelCore.Core.Extensibility;
 using System;
 using System.Collections.Generic;
 using System.CommandLine;
 
-namespace PretzelCore.Core.Extensibility
+namespace PretzelCore.Core.Extensions
 {
     /// <summary>
     /// Specifies a command arguments extention. Implementors should be decorated with the <see cref="CommandArgumentsExtensionAttribute"/>

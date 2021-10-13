@@ -1,8 +1,9 @@
+using PretzelCore.Core.Extensibility;
 using System.Composition;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace PretzelCore.Core.Extensibility.Extensions
+namespace PretzelCore.Services.Extensions
 {
     [Export(typeof(IFilter))]
     public class SlugifyFilter : IFilter

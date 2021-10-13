@@ -1,5 +1,6 @@
 using NUglify;
 using PretzelCore.Core.Extensions;
+using PretzelCore.Core.Telemetry;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Abstractions;

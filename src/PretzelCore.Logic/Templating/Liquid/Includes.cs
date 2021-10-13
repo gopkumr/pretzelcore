@@ -1,7 +1,7 @@
 using System.IO;
 using System.IO.Abstractions;
 
-namespace PretzelCore.Services.Templating.Jekyll
+namespace PretzelCore.Services.Templating.Liquid
 {
     public class Includes : DotLiquid.FileSystems.IFileSystem
     {

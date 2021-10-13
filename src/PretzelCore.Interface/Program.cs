@@ -1,5 +1,7 @@
+using PretzelCore.Core;
 using PretzelCore.Core.Commands.Handlers;
 using PretzelCore.Core.Extensions;
+using PretzelCore.Core.Telemetry;
 using PretzelCore.Services;
 using System;
 using System.Collections.Generic;

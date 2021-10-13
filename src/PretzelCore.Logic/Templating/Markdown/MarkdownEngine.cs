@@ -1,7 +1,9 @@
 using PretzelCore.Core.Exceptions;
 using PretzelCore.Core.Extensibility;
 using PretzelCore.Core.Extensions;
-using PretzelCore.Services.Templating.Context;
+using PretzelCore.Core.Telemetry;
+using PretzelCore.Core.Templating;
+using PretzelCore.Core.Templating.Context;
 using System;
 using System.Collections.Generic;
 using System.Composition;
@@ -11,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace PretzelCore.Services.Templating
+namespace PretzelCore.Services.Templating.Markdown
 {
     [Shared]
     [SiteEngineInfo(Engine = "markdown")]
@@ -64,7 +66,7 @@ namespace PretzelCore.Services.Templating
             page.OutputFile = Path.Combine(outputDirectory, relativePath);
             var extension = Path.GetExtension(page.File);
 
-            if (extension.IsImageFormat() || (page is NonProcessedPage))
+            if (extension.IsImageFormat() || page is NonProcessedPage)
             {
                 return;
             }
@@ -121,7 +123,7 @@ namespace PretzelCore.Services.Templating
                     : _context.ExcerptSeparator;
                 try
                 {
-                    context.Content = RenderContent(page.File,context.Content);
+                    context.Content = RenderContent(page.File, context.Content);
                     context.FullContent = context.Content;
                     context.Bag["excerpt"] = GetContentExcerpt(context.Content, excerptSeparator);
                 }
@@ -250,7 +252,7 @@ namespace PretzelCore.Services.Templating
 
         public void Initialize()
         {
-            
+
         }
     }
 }

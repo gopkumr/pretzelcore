@@ -1,4 +1,4 @@
-using PretzelCore.Services.Templating.Context;
+using PretzelCore.Core.Templating.Context;
 using System;
 using System.Collections.Generic;
 using System.Composition;

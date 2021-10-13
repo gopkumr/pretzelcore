@@ -2,7 +2,7 @@ using System.Composition;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
-namespace PretzelCore.Core.Extensions
+namespace PretzelCore.Core.Extensibility
 {
     public interface IAssembly
     {

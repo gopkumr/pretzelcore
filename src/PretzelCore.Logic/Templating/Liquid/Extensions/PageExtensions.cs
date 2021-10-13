@@ -1,7 +1,7 @@
 using DotLiquid;
-using PretzelCore.Services.Templating.Context;
+using PretzelCore.Core.Templating.Context;
 
-namespace PretzelCore.Services.Templating.Jekyll.Extensions
+namespace PretzelCore.Services.Templating.Liquid.Extensions
 {
     public static class PageExtensions
     {
