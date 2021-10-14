@@ -88,8 +88,6 @@ namespace PretzelCore.Core.Templating.Context
             Categories = new List<Category>();
             Posts = new List<Page>();
             Pages = new List<Page>();
-            //TODO: Implement site context generation in service rather than in core.
-            //Config = new Services.Configuration.Configuration();
         }
 
     }

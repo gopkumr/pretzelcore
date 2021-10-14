@@ -1,4 +1,5 @@
-using PretzelCore.Core.Extensibility.Extensions;
+using PretzelCore.Core.Templating.Context;
+using PretzelCore.Services.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Composition;

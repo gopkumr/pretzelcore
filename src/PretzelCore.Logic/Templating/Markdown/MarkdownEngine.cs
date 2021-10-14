@@ -37,7 +37,7 @@ namespace PretzelCore.Services.Templating.Markdown
                 var p = context.Posts[index];
                 var previous = GetPrevious(context.Posts, index);
                 var next = GetNext(context.Posts, index);
-                ProcessFile(context.OutputFolder, p, previous, next, skipFileOnError, p.Filepath);
+                ProcessFile(p, previous, next, skipFileOnError);
             }
 
             for (int index = 0; index < context.Pages.Count; index++)
@@ -45,7 +45,7 @@ namespace PretzelCore.Services.Templating.Markdown
                 var p = context.Pages[index];
                 var previous = GetPrevious(context.Pages, index);
                 var next = GetNext(context.Pages, index);
-                ProcessFile(context.OutputFolder, p, previous, next, skipFileOnError);
+                ProcessFile(p, previous, next, skipFileOnError);
             }
         }
         private static Page GetPrevious(IList<Page> pages, int index)
@@ -58,87 +58,76 @@ namespace PretzelCore.Services.Templating.Markdown
             return index >= 1 ? pages[index - 1] : null;
         }
 
-        private void ProcessFile(string outputDirectory, Page page, Page previous, Page next, bool skipFileOnError, string relativePath = "")
+        private void ProcessFile(Page page, Page previous, Page next, bool skipFileOnError)
         {
-            if (string.IsNullOrWhiteSpace(relativePath))
-                relativePath = MapToOutputPath(page.File);
-
-            page.OutputFile = Path.Combine(outputDirectory, relativePath);
             var extension = Path.GetExtension(page.File);
-
             if (extension.IsImageFormat() || page is NonProcessedPage)
             {
                 return;
             }
-            if (extension.IsMarkdownFile() || extension.IsRazorFile())
+
+            //var pageContext = PageContext.FromPage(_context, page, page.OutputFile);
+
+            //TODO: Implement Paginator
+            //pageContext.Previous = previous;
+            //pageContext.Next = next;
+
+            //var pageContexts = new List<PageContext> { pageContext };
+            //object paginateObj;
+            //if (page.Bag.TryGetValue("paginate", out paginateObj))
+            //{
+            //    var paginate = Convert.ToInt32(paginateObj);
+            //    var totalPages = (int)Math.Ceiling(_context.Posts.Count / Convert.ToDouble(paginateObj));
+            //    var paginator = new Paginator(_context, totalPages, paginate, 1);
+            //    pageContext.Paginator = paginator;
+
+            //    var paginateLink = "/page/:page/index.html";
+            //    if (page.Bag.ContainsKey("paginate_link"))
+            //        paginateLink = Convert.ToString(page.Bag["paginate_link"]);
+
+            //    var prevLink = page.Url;
+            //    for (var i = 2; i <= totalPages; i++)
+            //    {
+            //        var newPaginator = new Paginator(_context, totalPages, paginate, i) { PreviousPageUrl = prevLink };
+            //        var link = paginateLink.Replace(":page", Convert.ToString(i));
+            //        paginator.NextPageUrl = link;
+
+            //        paginator = newPaginator;
+            //        prevLink = link;
+
+            //        var path = Path.Combine(outputDirectory, link.ToRelativeFile());
+            //        if (path.EndsWith(FileSystem.Path.DirectorySeparatorChar.ToString()))
+            //        {
+            //            path = Path.Combine(path, "index.html");
+            //        }
+            //        var context = new PageContext(pageContext) { Paginator = newPaginator, OutputPath = path };
+            //        context.Bag["url"] = link;
+            //        pageContexts.Add(context);
+            //    }
+            //}
+
+            //var metadata = page.Bag;
+
+            var excerptSeparator = page.Bag.ContainsKey("excerpt_separator")
+                ? page.Bag["excerpt_separator"].ToString()
+                : _context.ExcerptSeparator;
+            try
             {
-                page.OutputFile = page.OutputFile.Replace(extension, ".html");
+                page.Content = RenderContent(page.File, page.Content);
+
+                page.Bag["excerpt"] = GetContentExcerpt(page.Content, excerptSeparator);
+            }
+            catch (Exception ex)
+            {
+                if (!skipFileOnError)
+                {
+                    var message = string.Format("Failed to process {0}, see inner exception for more details");
+                    throw new PageProcessingException(message, ex);
+                }
+
+                Console.WriteLine(@"Failed to process {0}: {1}", page.Id, ex);
             }
 
-            var pageContext = PageContext.FromPage(_context, page, page.OutputFile);
-
-            pageContext.Previous = previous;
-            pageContext.Next = next;
-
-            var pageContexts = new List<PageContext> { pageContext };
-            object paginateObj;
-            if (page.Bag.TryGetValue("paginate", out paginateObj))
-            {
-                var paginate = Convert.ToInt32(paginateObj);
-                var totalPages = (int)Math.Ceiling(_context.Posts.Count / Convert.ToDouble(paginateObj));
-                var paginator = new Paginator(_context, totalPages, paginate, 1);
-                pageContext.Paginator = paginator;
-
-                var paginateLink = "/page/:page/index.html";
-                if (page.Bag.ContainsKey("paginate_link"))
-                    paginateLink = Convert.ToString(page.Bag["paginate_link"]);
-
-                var prevLink = page.Url;
-                for (var i = 2; i <= totalPages; i++)
-                {
-                    var newPaginator = new Paginator(_context, totalPages, paginate, i) { PreviousPageUrl = prevLink };
-                    var link = paginateLink.Replace(":page", Convert.ToString(i));
-                    paginator.NextPageUrl = link;
-
-                    paginator = newPaginator;
-                    prevLink = link;
-
-                    var path = Path.Combine(outputDirectory, link.ToRelativeFile());
-                    if (path.EndsWith(FileSystem.Path.DirectorySeparatorChar.ToString()))
-                    {
-                        path = Path.Combine(path, "index.html");
-                    }
-                    var context = new PageContext(pageContext) { Paginator = newPaginator, OutputPath = path };
-                    context.Bag["url"] = link;
-                    pageContexts.Add(context);
-                }
-            }
-
-            foreach (var context in pageContexts)
-            {
-                var metadata = page.Bag;
-
-                var excerptSeparator = context.Bag.ContainsKey("excerpt_separator")
-                    ? context.Bag["excerpt_separator"].ToString()
-                    : _context.ExcerptSeparator;
-                try
-                {
-                    context.Content = RenderContent(page.File, context.Content);
-                    context.FullContent = context.Content;
-                    context.Bag["excerpt"] = GetContentExcerpt(context.Content, excerptSeparator);
-                }
-                catch (Exception ex)
-                {
-                    if (!skipFileOnError)
-                    {
-                        var message = string.Format("Failed to process {0}, see inner exception for more details", context.OutputPath);
-                        throw new PageProcessingException(message, ex);
-                    }
-
-                    Console.WriteLine(@"Failed to process {0}: {1}", context.OutputPath, ex);
-                    continue;
-                }
-            }
         }
 
         private string RenderContent(string file, string contents)
@@ -198,13 +187,6 @@ namespace PretzelCore.Services.Templating.Markdown
             }
         }
 
-        private void CreateOutputDirectory(string outputFile)
-        {
-            var directory = Path.GetDirectoryName(outputFile);
-            if (!FileSystem.Directory.Exists(directory))
-                FileSystem.Directory.CreateDirectory(directory);
-        }
-
         private static readonly string[] layoutExtensions = { ".html", ".htm" };
 
         protected virtual string[] LayoutExtensions
@@ -212,24 +194,6 @@ namespace PretzelCore.Services.Templating.Markdown
             get { return layoutExtensions; }
         }
 
-        private IDictionary<string, object> ProcessTemplate(PageContext pageContext, string path)
-        {
-            var templateFile = FileSystem.File.ReadAllText(path);
-            var metadata = templateFile.YamlHeader();
-            var templateContent = templateFile.ExcludeHeader();
-
-            //pageContext.FullContent = RenderTemplate(templateContent, pageContext);
-
-            return metadata;
-        }
-
-        private string MapToOutputPath(string file)
-        {
-            var temp = file.Replace(_context.SourceFolder, "")
-                .TrimStart(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-
-            return temp;
-        }
 
         public bool CanProcess(SiteContext context)
         {
@@ -238,17 +202,6 @@ namespace PretzelCore.Services.Templating.Markdown
             return context.Engine == engineInfo.Engine;
         }
 
-        private string FindLayoutPath(string layout)
-        {
-            foreach (var extension in LayoutExtensions)
-            {
-                var path = Path.Combine(_context.SourceFolder, "_layouts", layout + extension);
-                if (FileSystem.File.Exists(path))
-                    return path;
-            }
-
-            return null;
-        }
 
         public void Initialize()
         {

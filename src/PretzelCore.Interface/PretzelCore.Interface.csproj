@@ -3,6 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>pretzel</AssemblyName>
+    <Company>Vinca Creative</Company>
+    <Product>PretzelCore</Product>
+    <Authors>Gopakumar</Authors>
+    <PackageId>PretzelCore</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
