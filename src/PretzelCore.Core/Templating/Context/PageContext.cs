@@ -60,20 +60,11 @@ namespace PretzelCore.Core.Templating.Context
 
         public string FullContent { get; set; }
 
-        public static PageContext FromPage(SiteContext siteContext, Page page, string outputPath, string defaultOutputPath)
+        public static PageContext FromPage(SiteContext siteContext, Page page, string defaultOutputPath)
         {
             var context = new PageContext(siteContext, page);
 
-            if (page.Bag.ContainsKey("permalink") || siteContext.Config.ContainsKey("permalink"))
-            {
-                context.OutputPath = Path.Combine(outputPath, page.Url.ToRelativeFile());
-            }
-            else
-            {
-                context.OutputPath = defaultOutputPath;
-                page.Bag.Add("permalink", page.File);
-            }
-
+            context.OutputPath = defaultOutputPath;
             if (context.OutputPath.EndsWith(Path.DirectorySeparatorChar.ToString()))
             {
                 context.OutputPath = Path.Combine(context.OutputPath, "index.html");

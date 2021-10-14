@@ -115,7 +115,7 @@ namespace PretzelCore.Services.Templating
                 page.OutputFile = page.OutputFile.Replace(extension, ".html");
             }
 
-            var pageContext = PageContext.FromPage(Context, page, outputDirectory, page.OutputFile);
+            var pageContext = PageContext.FromPage(Context, page, page.OutputFile);
 
             pageContext.Previous = previous;
             pageContext.Next = next;

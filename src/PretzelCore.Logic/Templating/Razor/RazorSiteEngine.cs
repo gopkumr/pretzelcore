@@ -88,7 +88,7 @@ namespace PretzelCore.Services.Templating.Razor
             if (extension.IsMarkdownFile() || extension.IsRazorFile())
                 page.OutputFile = page.OutputFile.Replace(extension, ".html");
 
-            var pageContext = PageContext.FromPage(_context, page, outputDirectory, page.OutputFile);
+            var pageContext = PageContext.FromPage(_context, page, page.OutputFile);
             pageContext.Content = RenderTemplate(pageContext.Content, pageContext);
             pageContext.FullContent = pageContext.Content;
 

@@ -265,10 +265,13 @@ namespace PretzelCore.Services.Templating.Context
                 if (header.ContainsKey("permalink"))
                 {
                     page.Url = linkHelper.EvaluatePermalink(header["permalink"].ToString(), page);
+                    page.Filepath = Path.Combine(context.OutputFolder, page.Url.ToRelativeFile());
                 }
                 else if (isPost && config.ContainsKey("permalink"))
                 {
                     page.Url = linkHelper.EvaluatePermalink(config["permalink"].ToString(), page);
+                    page.Filepath = Path.Combine(context.OutputFolder, page.Url.ToRelativeFile());
+                    page.Bag["permalink"] = page.Url;
                 }
                 else
                 {
@@ -436,5 +439,6 @@ namespace PretzelCore.Services.Templating.Context
             var timePath = Path.Combine(tokens);
             return Path.Combine(outputDirectory, timePath);
         }
+
     }
 }
