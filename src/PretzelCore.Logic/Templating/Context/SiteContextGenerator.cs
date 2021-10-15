@@ -26,7 +26,7 @@ namespace PretzelCore.Services.Templating.Context
         private readonly IConfiguration _config;
 
         [ImportMany]
-        public IEnumerable<IBeforeProcessingTransform> BeforeProcessingTransforms { get; set; }
+        public IEnumerable<IPlugin> Plugins { get; set; }
 
         [ImportingConstructor]
         public SiteContextGenerator(IFileSystem fileSystem, LinkHelper linkHelper, IConfiguration config)
@@ -66,11 +66,11 @@ namespace PretzelCore.Services.Templating.Context
 
                 context.Pages = BuildPages(_config, context).ToList();
 
-                if (BeforeProcessingTransforms != null)
+                if (Plugins != null)
                 {
-                    foreach (var transform in BeforeProcessingTransforms)
+                    foreach (var transform in Plugins)
                     {
-                        transform.Transform(context);
+                        transform.PreProcessingTransform(context);
                     }
                 }
 

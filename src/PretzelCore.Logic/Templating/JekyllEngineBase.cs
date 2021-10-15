@@ -36,8 +36,8 @@ namespace PretzelCore.Services.Templating
         [ImportMany]
         public IEnumerable<TagFactoryBase> TagFactories { get; set; }
 
-        [ImportMany]
-        public IEnumerable<IContentTransform> ContentTransformers { get; set; }
+        //[ImportMany]
+        //public IEnumerable<IContentTransform> ContentTransformers { get; set; }
 
         [Import(AllowDefault = true)]
         public ILightweightMarkupEngine LightweightMarkupEngine { get; set; }
@@ -229,10 +229,10 @@ namespace PretzelCore.Services.Templating
                        ? LightweightMarkupEngine.Convert(contentsWithoutHeader).Trim()
                        : contentsWithoutHeader;
 
-                if (ContentTransformers != null)
-                {
-                    html = ContentTransformers.Aggregate(html, (current, contentTransformer) => contentTransformer.Transform(file,current));
-                }
+                //if (ContentTransformers != null)
+                //{
+                //    html = ContentTransformers.Aggregate(html, (current, contentTransformer) => contentTransformer.Transform(file,current));
+                //}
             }
             catch (Exception e)
             {

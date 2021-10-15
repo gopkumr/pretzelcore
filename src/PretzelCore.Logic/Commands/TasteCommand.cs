@@ -57,7 +57,7 @@ namespace PretzelCore.Services.Commands
         public SiteContextGenerator Generator { get; set; }
 
         [ImportMany]
-        public IEnumerable<ISiteTransform> Transforms { get; set; }
+        public IEnumerable<IPlugin> Plugins { get; set; }
 
         [Import]
         public IFileSystem FileSystem { get; set; }
@@ -93,8 +93,8 @@ namespace PretzelCore.Services.Commands
 
             engine.Initialize();
             engine.Process(context, skipFileOnError: true);
-            foreach (var t in Transforms)
-                t.Transform(context);
+            foreach (var t in Plugins)
+                t.PostProcessingTransform(context);
 
             using (var watcher = new SimpleFileSystemWatcher(arguments.Destination))
             {
@@ -173,8 +173,8 @@ namespace PretzelCore.Services.Commands
                 FileSystem.Directory.Delete(context.OutputFolder, true);
             }
             engine.Process(context, true);
-            foreach (var t in Transforms)
-                t.Transform(context);
+            foreach (var t in Plugins)
+                t.PostProcessingTransform(context);
         }
     }
 }

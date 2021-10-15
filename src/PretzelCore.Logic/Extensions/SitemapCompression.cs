@@ -8,8 +8,8 @@ using System.Text;
 
 namespace PretzelCore.Services.Extensions
 {
-    [Export(typeof(ISiteTransform))]
-    public class SitemapCompression : ISiteTransform
+    [Export(typeof(IPlugin))]
+    public class SitemapCompression : AbstractPlugin
     {
         IFileSystem _fileSystem;
 
@@ -19,7 +19,7 @@ namespace PretzelCore.Services.Extensions
             _fileSystem = fileSystem;
         }
 
-        public void Transform(SiteContext siteContext)
+        public override void PostProcessingTransform(SiteContext siteContext)
         {
             var sitemap = _fileSystem.Path.Combine(siteContext.OutputFolder, @"sitemap.xml");
             var compressedSitemap = sitemap + ".gz";

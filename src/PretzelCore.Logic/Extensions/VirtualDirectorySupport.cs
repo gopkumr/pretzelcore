@@ -31,8 +31,8 @@ namespace PretzelCore.Services.Extensions
 
     }
 
-    [Export(typeof(ISiteTransform))]
-    public class VirtualDirectorySupport : ISiteTransform
+    [Export(typeof(IPlugin))]
+    public class VirtualDirectorySupport : IPlugin
     {
         readonly IFileSystem fileSystem;
 
@@ -45,7 +45,17 @@ namespace PretzelCore.Services.Extensions
         [Import]
         public VirtualDirectorySupportArguments Arguments { get; set; }
 
-        public void Transform(SiteContext siteContext)
+        public string ContentTransform(string file, string content)
+        {
+            return content;
+        }
+
+        public void PreProcessingTransform(SiteContext context)
+        {
+            //Ignore
+        }
+
+        public void PostProcessingTransform(SiteContext siteContext)
         {
             if (string.IsNullOrEmpty(Arguments.VirtualDirectory)) return;
 

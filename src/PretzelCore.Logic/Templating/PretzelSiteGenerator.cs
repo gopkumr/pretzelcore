@@ -21,10 +21,7 @@ namespace PretzelCore.Services.Templating
         public IFileSystem FileSystem { get; set; }
 
         [ImportMany]
-        public IEnumerable<ISiteTransform> Transforms { get; set; }
-
-        [ImportMany]
-        public IEnumerable<IContentTransform> ContentTransformers { get; set; }
+        public IEnumerable<IPlugin> Plugins { get; set; }
 
         public void GenerateSite(SiteContext siteContext)
         {
@@ -38,7 +35,7 @@ namespace PretzelCore.Services.Templating
 
             Tracing.Info("Completed static content processing");
 
-            if (ContentTransformers != null)
+            if (Plugins != null)
             {
                 ExecuteContentTrasformations(siteContext);
             }
@@ -49,8 +46,8 @@ namespace PretzelCore.Services.Templating
             _templateEngine.Initialize();
             _templateEngine.Process(siteContext);
 
-            foreach (var t in Transforms)
-                t.Transform(siteContext);
+            foreach (var t in Plugins)
+                t.PostProcessingTransform(siteContext);
         }
 
 
@@ -69,11 +66,10 @@ namespace PretzelCore.Services.Templating
         private void ExecuteContentTrasformations(SiteContext siteContext)
         {
             foreach (var post in siteContext.Posts)
-                if (post.Bag.ContainsKey("published") && bool.Parse(post.Bag["published"].ToString()) == true)
-                    post.Content = ContentTransformers.Aggregate(post.Content, (currentContent, contentTransformer) => contentTransformer.Transform(post.File, currentContent));
+                post.Content = Plugins.Aggregate(post.Content, (currentContent, contentTransformer) => contentTransformer.ContentTransform(post.File, currentContent));
 
             foreach (var page in siteContext.Pages)
-                page.Content = ContentTransformers.Aggregate(page.Content, (currentContent, contentTransformer) => contentTransformer.Transform(page.File, currentContent));
+                page.Content = Plugins.Aggregate(page.Content, (currentContent, contentTransformer) => contentTransformer.ContentTransform(page.File, currentContent));
         }
     }
 }

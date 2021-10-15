@@ -14,8 +14,8 @@ using System.Linq;
 
 namespace PretzelCore.Services.Minification
 {
-    [Export(typeof(ISiteTransform))]
-    public class LessTransform : ISiteTransform
+    [Export(typeof(IPlugin))]
+    public class LessTransform : IPlugin
     {
         private static string[] ExternalProtocols = new[] { "http", "https", "//" };
 
@@ -37,7 +37,7 @@ namespace PretzelCore.Services.Minification
             return engine;
         }
 
-        public void Transform(SiteContext siteContext)
+        public void PostProcessingTransform(SiteContext siteContext)
         {
             var shouldCompile = new List<Page>();
             //Process to see if the site has a CSS file that doesn't exist, and should be created from LESS files.
@@ -122,6 +122,16 @@ namespace PretzelCore.Services.Minification
             }
 
             return css;
+        }
+
+        public string ContentTransform(string file, string content)
+        {
+            return content;
+        }
+
+        public void PreProcessingTransform(SiteContext context)
+        {
+           //Ignore
         }
 
         class CustomFileReader : IFileReader
