@@ -1,11 +1,10 @@
 using PretzelCore.Core.Extensibility;
-using PretzelCore.Core.Extensions;
 using PretzelCore.Core.Telemetry;
 using PretzelCore.Core.Templating.Context;
-using System;
 using System.Collections.Generic;
 using System.Composition;
 using System.IO.Abstractions;
+using System.Linq;
 
 namespace PretzelCore.Services.Templating
 {
@@ -24,6 +23,9 @@ namespace PretzelCore.Services.Templating
         [ImportMany]
         public IEnumerable<ITransform> Transforms { get; set; }
 
+        [ImportMany]
+        public IEnumerable<IContentTransform> ContentTransformers { get; set; }
+
         public void GenerateSite(SiteContext siteContext)
         {
             if (_sourceContentEngine == null || _templateEngine == null)
@@ -36,6 +38,11 @@ namespace PretzelCore.Services.Templating
 
             Tracing.Info("Completed static content processing");
 
+            if (ContentTransformers != null)
+            {
+                ExecuteContentTrasformations(siteContext);
+            }
+
             _sourceContentEngine.Initialize();
             _sourceContentEngine.Process(siteContext);
 
@@ -45,6 +52,7 @@ namespace PretzelCore.Services.Templating
             foreach (var t in Transforms)
                 t.Transform(siteContext);
         }
+
 
         public ISiteGenerator SetSourceContentEngine(ISiteEngine engine)
         {
@@ -56,6 +64,16 @@ namespace PretzelCore.Services.Templating
         {
             _templateEngine = engine;
             return this;
+        }
+
+        private void ExecuteContentTrasformations(SiteContext siteContext)
+        {
+            foreach (var post in siteContext.Posts)
+                if (post.Bag.ContainsKey("published") && bool.Parse(post.Bag["published"].ToString()) == true)
+                    post.Content = ContentTransformers.Aggregate(post.Content, (currentContent, contentTransformer) => contentTransformer.Transform(post.File, currentContent));
+
+            foreach (var page in siteContext.Pages)
+                page.Content = ContentTransformers.Aggregate(page.Content, (currentContent, contentTransformer) => contentTransformer.Transform(page.File, currentContent));
         }
     }
 }
