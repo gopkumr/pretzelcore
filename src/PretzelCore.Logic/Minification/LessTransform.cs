@@ -14,8 +14,8 @@ using System.Linq;
 
 namespace PretzelCore.Services.Minification
 {
-    [Export(typeof(ITransform))]
-    public class LessTransform : ITransform
+    [Export(typeof(ISiteTransform))]
+    public class LessTransform : ISiteTransform
     {
         private static string[] ExternalProtocols = new[] { "http", "https", "//" };
 

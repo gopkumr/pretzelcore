@@ -57,7 +57,7 @@ namespace PretzelCore.Services.Commands
         public SiteContextGenerator Generator { get; set; }
 
         [ImportMany]
-        public IEnumerable<ITransform> Transforms { get; set; }
+        public IEnumerable<ISiteTransform> Transforms { get; set; }
 
         [Import]
         public IFileSystem FileSystem { get; set; }

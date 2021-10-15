@@ -21,7 +21,7 @@ namespace PretzelCore.Services.Templating
         public IFileSystem FileSystem { get; set; }
 
         [ImportMany]
-        public IEnumerable<ITransform> Transforms { get; set; }
+        public IEnumerable<ISiteTransform> Transforms { get; set; }
 
         [ImportMany]
         public IEnumerable<IContentTransform> ContentTransformers { get; set; }

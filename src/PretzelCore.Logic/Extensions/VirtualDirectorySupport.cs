@@ -31,8 +31,8 @@ namespace PretzelCore.Services.Extensions
 
     }
 
-    [Export(typeof(ITransform))]
-    public class VirtualDirectorySupport : ITransform
+    [Export(typeof(ISiteTransform))]
+    public class VirtualDirectorySupport : ISiteTransform
     {
         readonly IFileSystem fileSystem;
 

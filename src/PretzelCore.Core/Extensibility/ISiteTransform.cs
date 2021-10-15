@@ -6,7 +6,7 @@ namespace PretzelCore.Core.Extensibility
     /// Extensions that can be used to tranform the generated site after all
     /// the generation process is completed
     /// </summary>
-    public interface ITransform
+    public interface ISiteTransform
     {
         /// <summary>
         /// Transforms the generated site using the information about the site passed in.

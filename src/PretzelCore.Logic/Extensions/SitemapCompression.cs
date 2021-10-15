@@ -8,8 +8,8 @@ using System.Text;
 
 namespace PretzelCore.Services.Extensions
 {
-    [Export(typeof(ITransform))]
-    public class SitemapCompression : ITransform
+    [Export(typeof(ISiteTransform))]
+    public class SitemapCompression : ISiteTransform
     {
         IFileSystem _fileSystem;
 
