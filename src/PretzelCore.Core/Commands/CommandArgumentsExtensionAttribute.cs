@@ -2,7 +2,7 @@ using PretzelCore.Core.Extensions;
 using System;
 using System.Composition;
 
-namespace PretzelCore.Core.Extensibility
+namespace PretzelCore.Core.Commands
 {
     [MetadataAttribute]
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]

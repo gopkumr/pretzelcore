@@ -1,8 +1,9 @@
+using PretzelCore.Core.Commands;
 using PretzelCore.Core.Extensions;
 using System.Collections.Generic;
 using System.CommandLine;
 
-namespace PretzelCore.Core.Commands.Interfaces
+namespace PretzelCore.Core.Extensibility
 {
     /// <summary>
     /// Specifies a command argument for a single command. Implementors should be decorated with the <see cref="CommandArgumentsAttribute"/>

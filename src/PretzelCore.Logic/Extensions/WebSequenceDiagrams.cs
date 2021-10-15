@@ -1,4 +1,5 @@
 using PretzelCore.Core.Extensibility;
+using PretzelCore.Core.Templating.Context;
 using System.Composition;
 using System.Text.RegularExpressions;
 
@@ -12,7 +13,7 @@ namespace PretzelCore.Services.Extensions
         const string Div_Template = "<div class=\"wsd\"{1}><pre>{0}</pre></div>";
         const string JS_Script = "\r\n<script type=\"text/javascript\" src=\"http://www.websequencediagrams.com/service.js\"></script>";
 
-        public string Transform(string content)
+        public string Transform(string file, string content)
         {
             var contentIncludesASequenceDiagram = false;
             content = SequenceDiagramRegex.Replace(content, match =>

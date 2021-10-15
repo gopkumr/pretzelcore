@@ -3,7 +3,6 @@ using System.CommandLine;
 using System.Composition;
 using System.Linq;
 using PretzelCore.Core.Configuration;
-using PretzelCore.Core.Commands.Interfaces;
 using PretzelCore.Core.Extensibility;
 using PretzelCore.Core.Configuration.Interfaces;
 using PretzelCore.Core.Extensions;
@@ -14,11 +13,11 @@ namespace PretzelCore.Core.Commands.Handlers
     [Shared]
     public sealed class CommandCollection
     {
-        ExportFactory<Interfaces.ICommand, CommandInfoAttribute>[] commands;
+        ExportFactory<Extensibility.ICommand, CommandInfoAttribute>[] commands;
         [ImportMany]
-        public ExportFactory<Interfaces.ICommand, CommandInfoAttribute>[] Commands
+        public ExportFactory<Extensibility.ICommand, CommandInfoAttribute>[] Commands
         {
-            get => commands ?? Array.Empty<ExportFactory<Interfaces.ICommand, CommandInfoAttribute>>();
+            get => commands ?? Array.Empty<ExportFactory<Extensibility.ICommand, CommandInfoAttribute>>();
             set => commands = value;
         }
 

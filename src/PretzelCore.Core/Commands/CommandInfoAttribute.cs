@@ -1,4 +1,4 @@
-using PretzelCore.Core.Commands.Interfaces;
+using PretzelCore.Core.Extensibility;
 using System;
 using System.Composition;
 

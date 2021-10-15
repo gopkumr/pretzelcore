@@ -1,4 +1,4 @@
-using PretzelCore.Core.Extensibility;
+using PretzelCore.Core.Commands;
 using System;
 using System.Collections.Generic;
 using System.CommandLine;

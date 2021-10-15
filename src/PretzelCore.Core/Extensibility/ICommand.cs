@@ -1,6 +1,7 @@
+using PretzelCore.Core.Commands;
 using System.Threading.Tasks;
 
-namespace PretzelCore.Core.Commands.Interfaces
+namespace PretzelCore.Core.Extensibility
 {
     /// <summary>
     /// Defines a custom command for pretzel. Implementors should be decorated with the <see cref="CommandInfoAttribute"/>

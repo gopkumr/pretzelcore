@@ -1,6 +1,6 @@
-using PretzelCore.Core.Commands.Interfaces;
 using PretzelCore.Core.Configuration;
 using PretzelCore.Core.Configuration.Interfaces;
+using PretzelCore.Core.Extensibility;
 using System.CommandLine.Binding;
 using System.CommandLine.Invocation;
 using System.Composition;

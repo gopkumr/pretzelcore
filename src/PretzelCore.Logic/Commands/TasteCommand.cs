@@ -8,7 +8,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Connections;
 using PretzelCore.Core.Commands;
-using PretzelCore.Core.Commands.Interfaces;
 using PretzelCore.Core.Configuration.Interfaces;
 using PretzelCore.Core.Extensibility;
 using PretzelCore.Core.Extensions;

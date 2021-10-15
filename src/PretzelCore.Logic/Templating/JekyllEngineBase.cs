@@ -231,7 +231,7 @@ namespace PretzelCore.Services.Templating
 
                 if (ContentTransformers != null)
                 {
-                    html = ContentTransformers.Aggregate(html, (current, contentTransformer) => contentTransformer.Transform(current));
+                    html = ContentTransformers.Aggregate(html, (current, contentTransformer) => contentTransformer.Transform(file,current));
                 }
             }
             catch (Exception e)

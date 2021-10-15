@@ -41,10 +41,9 @@ namespace PretzelCore.Services.Templating
 
             _templateEngine.Initialize();
             _templateEngine.Process(siteContext);
+
             foreach (var t in Transforms)
                 t.Transform(siteContext);
-
-            _templateEngine.CompressSitemap(siteContext, FileSystem);
         }
 
         public ISiteGenerator SetSourceContentEngine(ISiteEngine engine)
