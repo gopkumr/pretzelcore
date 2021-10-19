@@ -1,9 +1,8 @@
-using PretzelCore.Core.Extensions;
 using PretzelCore.Core.Telemetry;
 using System;
 using System.Collections.Generic;
 
-namespace PretzelCore.Interface
+namespace PretzelCore.CLI
 {
     internal static class ConsoleTrace
     {

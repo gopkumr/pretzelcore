@@ -6,7 +6,7 @@ using System.IO.Abstractions;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace PretzelCore.Interface.Import
+namespace PretzelCore.Services.Import
 {
     public class WordpressImport
     {

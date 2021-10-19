@@ -1,6 +1,4 @@
-using PretzelCore.Core;
 using PretzelCore.Core.Commands.Handlers;
-using PretzelCore.Core.Extensions;
 using PretzelCore.Core.Telemetry;
 using PretzelCore.Services;
 using System;
@@ -15,7 +13,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace PretzelCore.Interface
+namespace PretzelCore.CLI
 {
     public class Program
     {
@@ -220,61 +218,8 @@ namespace PretzelCore.Interface
                             //Cannot load the type. It's probably wrong bitness
                         }
                     }
-
-                    //AddScriptCs(configuration, pluginsPath);
                 }
             }
         }
-
-        //private static void AddScriptCs(ContainerConfiguration configuration, string pluginsPath)
-        //{
-        //    var pretzelScriptCsPath = Path.Combine(new FileInfo(Assembly.GetEntryAssembly().Location).DirectoryName, "Pretzel.ScriptCs.dll");
-        //    if (File.Exists(pretzelScriptCsPath))
-        //    {
-        //        var pretzelScriptcsAssembly = Assembly.LoadFile(pretzelScriptCsPath);
-        //        if (pretzelScriptcsAssembly != null)
-        //        {
-        //            var factoryType = pretzelScriptcsAssembly.GetType("Pretzel.ScriptCs.ScriptCsCatalogFactory");
-        //            if (factoryType != null)
-        //            {
-        //                var scriptCsCatalogMethod = factoryType.GetMethod("CreateScriptCsCatalog");
-
-        //                if (scriptCsCatalogMethod != null)
-        //                {
-        //                    throw new NotSupportedException($"Currently there is no support for ScriptCS cause the lack of the new 'System.Composition' model.{Environment.NewLine}Please stay tuned.");
-        //                }
-        //                //TODO: ScriptCS Support
-        //                //if (scriptCsCatalogMethod != null)
-        //                //{
-        //                //    var catalog = (ComposablePartCatalog)scriptCsCatalogMethod.Invoke(null, new object[]
-        //                //        {
-        //                //            pluginsPath,
-        //                //            new[]
-        //                //            {
-        //                //                typeof(DotLiquid.Tag),
-        //                //                typeof(Logic.Extensibility.ITag),
-        //                //                typeof(Logic.Templating.Context.SiteContext),
-        //                //                typeof(IFileSystem),
-        //                //                typeof(IConfiguration),
-        //                //            }
-        //                //        });
-        //                //    mainCatalog.Catalogs.Add(catalog);
-        //                //}
-        //                //else
-        //                //{
-        //                //    Tracing.Debug("Assembly 'Pretzel.ScriptCs.dll' detected and loaded, type 'Pretzel.ScriptCs.ScriptCsCatalogFactory' found but method 'CreateScriptCsCatalog' not found.");
-        //                //}
-        //            }
-        //            else
-        //            {
-        //                Tracing.Debug("Assembly 'Pretzel.ScriptCs.dll' detected and loaded but type 'Pretzel.ScriptCs.ScriptCsCatalogFactory' not found.");
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Tracing.Debug("Assembly 'Pretzel.ScriptCs.dll' detected but not loaded.");
-        //        }
-        //    }
-        //}
     }
 }

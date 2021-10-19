@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pretzel.ScriptCs", "Pretzel.ScriptCs\Pretzel.ScriptCs.csproj", "{23308D48-7EBF-4082-BFDA-B62C9404E9C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PretzelCore.Interface", "PretzelCore.Interface\PretzelCore.Interface.csproj", "{ABFC27A7-9F68-496D-99E2-CAC59AFC26A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PretzelCore.CLI", "PretzelCore.Interface\PretzelCore.CLI.csproj", "{ABFC27A7-9F68-496D-99E2-CAC59AFC26A1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PretzelCore.Services", "PretzelCore.Logic\PretzelCore.Services.csproj", "{2FD406DA-6624-4DDB-AB79-784B489347FC}"
 EndProject

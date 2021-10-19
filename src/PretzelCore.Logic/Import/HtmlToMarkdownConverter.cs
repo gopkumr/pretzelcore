@@ -1,17 +1,16 @@
 using HtmlAgilityPack;
-using PretzelCore.Core.Extensions;
 using PretzelCore.Core.Telemetry;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace PretzelCore.Interface.Import
+namespace PretzelCore.Services.Import
 {
     /// <summary>
     /// This one uses the HTML agility pack
     /// </summary>
-    public class HtmlToMarkdownConverter
+    internal class HtmlToMarkdownConverter
     {
         public string Convert(string html)
         {
