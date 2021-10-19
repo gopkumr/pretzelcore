@@ -4,6 +4,8 @@ using PretzelCore.Core.Telemetry;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Abstractions;
+using System.Linq;
+using System.Text;
 
 namespace PretzelCore.Services.Minification
 {
@@ -22,7 +24,7 @@ namespace PretzelCore.Services.Minification
 
         public void Minify()
         {
-            var content = fileSystem.BundleFiles(files);
+            var content = BundleFiles(files);
             var minified = Uglify.Js(content);
             if (minified.HasErrors)
             {
@@ -32,6 +34,14 @@ namespace PretzelCore.Services.Minification
                 }
             }
             fileSystem.File.WriteAllText(outputPath, minified.Code);
+        }
+
+        string BundleFiles(IEnumerable<FileInfo> filePaths)
+        {
+            var outputCss = filePaths.Select(file => fileSystem.File.ReadAllText(file.FullName))
+                .Aggregate(new StringBuilder(), (builder, val) => builder.Append(val + "\n"));
+
+            return outputCss.ToString();
         }
     }
 }

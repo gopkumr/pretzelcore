@@ -12,7 +12,7 @@ using System.IO;
 using System.IO.Abstractions;
 using System.Linq;
 
-namespace PretzelCore.Services.Minification
+namespace PretzelCore.Services.Extensions
 {
     [Export(typeof(IPlugin))]
     public class LessTransform : IPlugin
@@ -131,7 +131,7 @@ namespace PretzelCore.Services.Minification
 
         public void PreProcessingTransform(SiteContext context)
         {
-           //Ignore
+            //Ignore
         }
 
         class CustomFileReader : IFileReader

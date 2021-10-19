@@ -2,7 +2,7 @@
   "profiles": {
     "PretzelCore": {
       "commandName": "Project",
-      "commandLineArgs": "taste",
+      "commandLineArgs": "bake",
       "workingDirectory": "D:\\PretzelOutput"
     }
   }

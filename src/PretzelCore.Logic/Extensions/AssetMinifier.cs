@@ -45,5 +45,15 @@ namespace PretzelCore.Services.Minification
         {
             throw new NotImplementedException();
         }
+
+
+        string BundleFiles(IEnumerable<FileInfo> filePaths)
+        {
+            var outputCss = filePaths.Select(file => _fileSystem.File.ReadAllText(file.FullName))
+                .Aggregate(new StringBuilder(), (builder, val) => builder.Append(val + "\n"));
+
+            return outputCss.ToString();
+        }
+
     }
 }
