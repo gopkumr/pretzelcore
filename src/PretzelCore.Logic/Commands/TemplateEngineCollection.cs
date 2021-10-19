@@ -9,10 +9,13 @@ namespace PretzelCore.Services.Commands
     [Shared]
     public sealed class TemplateEngineCollection
     {
-        [ImportMany]
-#pragma warning disable 649
-        public ExportFactory<ISiteEngine, SiteEngineInfoAttribute>[] templateEngineMap { get; set; }
-#pragma warning restore 649
+        ExportFactory<ISiteEngine, SiteEngineInfoAttribute>[] _templateEngineMap;
+
+        [ImportingConstructor]
+        public TemplateEngineCollection([ImportMany] ExportFactory<ISiteEngine, SiteEngineInfoAttribute>[] templateEngineMap)
+        {
+            _templateEngineMap = templateEngineMap;
+        }
 
         public Dictionary<string, ISiteEngine> Engines { get; private set; }
 
@@ -29,9 +32,9 @@ namespace PretzelCore.Services.Commands
         [OnImportsSatisfied]
         public void OnImportsSatisfied()
         {
-            Engines = new Dictionary<string, ISiteEngine>(templateEngineMap.Length);
+            Engines = new Dictionary<string, ISiteEngine>(_templateEngineMap.Length);
 
-            foreach (var command in templateEngineMap)
+            foreach (var command in _templateEngineMap)
             {
                 if (!Engines.ContainsKey(command.Metadata.Engine))
                     Engines.Add(command.Metadata.Engine, command.CreateExport().Value);

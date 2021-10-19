@@ -1,3 +1,13 @@
+using Microsoft.AspNetCore.Connections;
+using PretzelCore.Core.Commands;
+using PretzelCore.Core.Configuration.Interfaces;
+using PretzelCore.Core.Extensibility;
+using PretzelCore.Core.Telemetry;
+using PretzelCore.Core.Templating.Context;
+using PretzelCore.Services.Hosting;
+using PretzelCore.Services.Modules;
+using PretzelCore.Services.Templating;
+using PretzelCore.Services.Templating.Context;
 using System;
 using System.Collections.Generic;
 using System.CommandLine;
@@ -6,17 +16,6 @@ using System.IO;
 using System.IO.Abstractions;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Connections;
-using PretzelCore.Core.Commands;
-using PretzelCore.Core.Configuration.Interfaces;
-using PretzelCore.Core.Extensibility;
-using PretzelCore.Core.Extensions;
-using PretzelCore.Core.Telemetry;
-using PretzelCore.Core.Templating.Context;
-using PretzelCore.Services.Hosting;
-using PretzelCore.Services.Modules;
-using PretzelCore.Services.Templating;
-using PretzelCore.Services.Templating.Context;
 
 namespace PretzelCore.Services.Commands
 {
@@ -48,7 +47,6 @@ namespace PretzelCore.Services.Commands
         )]
     public sealed class TasteCommand : Command<TasteCommandArguments>
     {
-        private ISiteEngine engine;
 
         [Import]
         public TemplateEngineCollection TemplateEngines { get; set; }
@@ -56,8 +54,8 @@ namespace PretzelCore.Services.Commands
         [Import]
         public SiteContextGenerator Generator { get; set; }
 
-        [ImportMany]
-        public IEnumerable<IPlugin> Plugins { get; set; }
+        [Import]
+        public PretzelSiteGenerator SiteGenerator { get; set; }
 
         [Import]
         public IFileSystem FileSystem { get; set; }
@@ -81,9 +79,10 @@ namespace PretzelCore.Services.Commands
                 arguments.DetectFromDirectory(TemplateEngines.Engines, context);
             }
 
-            engine = TemplateEngines[arguments.Template];
+            var renderingEngine = TemplateEngines[arguments.Template];
+            var markdownEngine = TemplateEngines["markdown"];
 
-            if (engine == null)
+            if (renderingEngine == null)
             {
                 Tracing.Info("template engine {0} not found - (engines: {1})", arguments.Template,
                                            string.Join(", ", TemplateEngines.Engines.Keys));
@@ -91,10 +90,9 @@ namespace PretzelCore.Services.Commands
                 return 1;
             }
 
-            engine.Initialize();
-            engine.Process(context, skipFileOnError: true);
-            foreach (var t in Plugins)
-                t.PostProcessingTransform(context);
+            SiteGenerator.SetSourceContentEngine(markdownEngine)
+                         .SetTemplatingEngine(renderingEngine)
+                         .GenerateSite(context);
 
             using (var watcher = new SimpleFileSystemWatcher(arguments.Destination))
             {
@@ -172,9 +170,7 @@ namespace PretzelCore.Services.Commands
             {
                 FileSystem.Directory.Delete(context.OutputFolder, true);
             }
-            engine.Process(context, true);
-            foreach (var t in Plugins)
-                t.PostProcessingTransform(context);
+            SiteGenerator.GenerateSite(context);
         }
     }
 }

@@ -41,9 +41,19 @@ namespace PretzelCore.Services.Hosting
                 {
                     if (!Debug) l.ClearProviders();
                 })
-                .ConfigureKestrel(k => k.ListenLocalhost(Port))
-                .Configure(config => config.UseDefaultFiles().UseStaticFiles())
-                .UseWebRoot(BasePath).Build();
+                .UseKestrel()
+                .ConfigureKestrel(k =>
+                {
+                    k.ListenLocalhost(Port);
+                })
+                .Configure(config =>
+                {
+                    config.UseDefaultFiles()
+                          .UseStaticFiles();
+                })
+                .UseWebRoot(BasePath)
+                .CaptureStartupErrors(true)
+                .Build();
 
             await webHost.StartAsync();
             IsRunning = true;
