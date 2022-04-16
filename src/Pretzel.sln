@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pretzel.Tests", "Pretzel.Tests\Pretzel.Tests.csproj", "{B90C3F82-7B38-49E9-80D5-F9752F7B2C67}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5F558191-21D9-40C6-9173-C416DCEFDA21}"
 	ProjectSection(SolutionItems) = preProject
 		..\.editorconfig = ..\.editorconfig
@@ -12,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\CONTRIBUTING.md = ..\CONTRIBUTING.md
 		..\README.md = ..\README.md
 	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pretzel.ScriptCs", "Pretzel.ScriptCs\Pretzel.ScriptCs.csproj", "{23308D48-7EBF-4082-BFDA-B62C9404E9C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PretzelCore.CLI", "PretzelCore.Interface\PretzelCore.CLI.csproj", "{ABFC27A7-9F68-496D-99E2-CAC59AFC26A1}"
 EndProject
@@ -23,20 +19,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PretzelCore.Tests", "Pretze
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PretzelCore.Core", "PretzelCore.Core\PretzelCore.Core.csproj", "{904CE894-9B9E-44E9-9C66-26715E1E7790}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{19F9B7CB-41AF-49CC-9145-DB61BF1CB627}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clients", "clients", "{8BA5157F-6A80-4864-83DE-7DB603B4C827}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{545C3792-8843-40C6-A460-C90B5F478E6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PretzelCore.Hosting", "PretzelCore.Hosting\PretzelCore.Hosting.csproj", "{90BFA453-EE56-4822-B105-5DA417CFA091}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B90C3F82-7B38-49E9-80D5-F9752F7B2C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B90C3F82-7B38-49E9-80D5-F9752F7B2C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B90C3F82-7B38-49E9-80D5-F9752F7B2C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B90C3F82-7B38-49E9-80D5-F9752F7B2C67}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23308D48-7EBF-4082-BFDA-B62C9404E9C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23308D48-7EBF-4082-BFDA-B62C9404E9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23308D48-7EBF-4082-BFDA-B62C9404E9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23308D48-7EBF-4082-BFDA-B62C9404E9C7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ABFC27A7-9F68-496D-99E2-CAC59AFC26A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ABFC27A7-9F68-496D-99E2-CAC59AFC26A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABFC27A7-9F68-496D-99E2-CAC59AFC26A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,9 +49,20 @@ Global
 		{904CE894-9B9E-44E9-9C66-26715E1E7790}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{904CE894-9B9E-44E9-9C66-26715E1E7790}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{904CE894-9B9E-44E9-9C66-26715E1E7790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90BFA453-EE56-4822-B105-5DA417CFA091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90BFA453-EE56-4822-B105-5DA417CFA091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90BFA453-EE56-4822-B105-5DA417CFA091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90BFA453-EE56-4822-B105-5DA417CFA091}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ABFC27A7-9F68-496D-99E2-CAC59AFC26A1} = {8BA5157F-6A80-4864-83DE-7DB603B4C827}
+		{2FD406DA-6624-4DDB-AB79-784B489347FC} = {545C3792-8843-40C6-A460-C90B5F478E6C}
+		{DA112872-2544-4DA1-86E0-FF96A7202C01} = {19F9B7CB-41AF-49CC-9145-DB61BF1CB627}
+		{904CE894-9B9E-44E9-9C66-26715E1E7790} = {19F9B7CB-41AF-49CC-9145-DB61BF1CB627}
+		{90BFA453-EE56-4822-B105-5DA417CFA091} = {545C3792-8843-40C6-A460-C90B5F478E6C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A2177C0-9450-4D23-8A96-BC418A9B1463}

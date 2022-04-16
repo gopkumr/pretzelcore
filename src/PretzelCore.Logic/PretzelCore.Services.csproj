@@ -70,6 +70,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PretzelCore.Core\PretzelCore.Core.csproj" />
+    <ProjectReference Include="..\PretzelCore.Hosting\PretzelCore.Hosting.csproj" />
   </ItemGroup>
 
 </Project>

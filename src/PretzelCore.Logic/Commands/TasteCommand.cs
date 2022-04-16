@@ -4,6 +4,7 @@ using PretzelCore.Core.Configuration.Interfaces;
 using PretzelCore.Core.Extensibility;
 using PretzelCore.Core.Telemetry;
 using PretzelCore.Core.Templating.Context;
+using PretzelCore.Hosting;
 using PretzelCore.Services.Hosting;
 using PretzelCore.Services.Modules;
 using PretzelCore.Services.Templating;
@@ -98,11 +99,11 @@ namespace PretzelCore.Services.Commands
             {
                 watcher.OnChange(arguments.Source, file => WatcherOnChanged(file, arguments));
 
-                using (var w = new AspNetCoreWebHost(arguments.Destination, Convert.ToInt32(arguments.Port), arguments.Debug))
+                using (var w = new Server(arguments.Destination, Convert.ToInt32(arguments.Port), arguments.Debug))
                 {
                     try
                     {
-                        await w.Start();
+                        w.StartAsync();
                     }
                     catch (IOException ex) when (ex.InnerException is AddressInUseException)
                     {
