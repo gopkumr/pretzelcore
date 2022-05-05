@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5F558191-21D9-40C6-9173-C416DCEFDA21}"
 	ProjectSection(SolutionItems) = preProject
@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clients", "clients", "{8BA5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{545C3792-8843-40C6-A460-C90B5F478E6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PretzelCore.Hosting", "PretzelCore.Hosting\PretzelCore.Hosting.csproj", "{90BFA453-EE56-4822-B105-5DA417CFA091}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PretzelCore.Hosting", "PretzelCore.Hosting\PretzelCore.Hosting.csproj", "{90BFA453-EE56-4822-B105-5DA417CFA091}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
